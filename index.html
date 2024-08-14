@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -12,51 +11,80 @@
       href="./images/favicon-32x32.png"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Frontend Mentor | Rock, Paper, Scissors</title>
 
-    Score Rules You Picked The House Picked You Win You Lose Play Again
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
     <script type="module" src="./src/main.ts"></script>
   </head>
-  <body>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+  <body
+    class="grid grid-rows-[1fr_auto] grid-cols-1 bg-gradient-to-b from-bgGradientFrom to-bgGradientTo text-slate-200 p-6 min-h-screen"
+  >
+    <div class="grid grid-rows-[auto_1fr]">
+      <header>
+        <div
+          class="flex justify-between items-center border-2 p-4 border-slate-400 rounded-md mb-4 pointer-events-none select-none"
+        >
+          <div class="max-w-28">
+            <img
+              class="h-full w-full object-contain"
+              src="images/logo.svg"
+              alt="Logo"
+            />
+          </div>
 
-    <footer class="footer">
-      <div class="attribution-wrapper">
-        <p class="attribution">
-          <span>
-            Coded by
-            <a
-              class="attb-link"
-              href="https://twitter.com/CodePapa360"
-              target="_blank"
-              >Alamin</a
+          <div
+            class="bg-slate-100 rounded-md p-2 h-20 w-20 flex justify-center items-center flex-col"
+          >
+            <span class="text-blue-700 uppercase tracking-wider text-sm"
+              >Score</span
             >
-          </span>
-          <span>
-            Challenge by
-            <a
-              class="attb-link attb-fem"
-              href="https://www.frontendmentor.io/profile/CodePapa360"
-              target="_blank"
-              >Frontend Mentor</a
-            >
-          </span>
+            <span class="text-slate-600 text-4xl font-bold">12</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex flex-col justify-between items-center mb-4">
+        <div>
+          <img
+            class="pointer-events-none select-none"
+            src="images/bg-triangle.svg"
+            alt="triangle"
+          />
+        </div>
+
+        <button
+          class="border-2 rounded-md tracking-wider px-4 py-2 border-slate-400 hover:bg-slate-400 hover:text-slate-800 transition-all select-none"
+        >
+          Rules
+        </button>
+      </main>
+    </div>
+    <!--  -->
+    <!-- Footer -->
+    <!--  -->
+    <footer class="bg-slate-700 rounded-md text-white p-2">
+      <div class="text-center">
+        <p class="text-sm">
+          Coded by
+          <a
+            class="text-blue-400 hover:text-blue-300 transition-colors"
+            href="https://twitter.com/CodePapa360"
+            target="_blank"
+            >Alamin</a
+          >
+          & Challenge by
+          <a
+            class="text-blue-400 hover:text-blue-300 transition-colors"
+            href="https://www.frontendmentor.io/profile/CodePapa360"
+            target="_blank"
+            >Frontend Mentor</a
+          >
         </p>
       </div>
     </footer>
