@@ -49,13 +49,47 @@
         </div>
       </header>
 
-      <main class="flex flex-col justify-between items-center mb-4">
-        <div>
-          <img
-            class="pointer-events-none select-none"
-            src="images/bg-triangle.svg"
-            alt="triangle"
-          />
+      <main class="flex flex-col justify-between items-center mb-8">
+        <div class="my-20">
+          <div class="relative">
+            <img
+              class="pointer-events-none select-none"
+              src="images/bg-triangle.svg"
+              alt="triangle"
+            />
+
+            <button
+              class="absolute w-32 h-w-32 -top-4 -left-4 bg-yellow-500 rounded-full p-4"
+            >
+              <div
+                class="bg-white rounded-full p-7 shadow-inner shadow-slate-400"
+              >
+                <img
+                  src="images/icon-rock.svg"
+                  alt="Rock"
+                  class="h-full w-full"
+                />
+              </div>
+            </button>
+
+            <button class="absolute w-20 h-20 -top-4 -right-4">
+              <img
+                src="images/icon-scissors.svg"
+                alt="Scissors"
+                class="h-full w-full"
+              />
+            </button>
+
+            <button
+              class="absolute w-20 h-20 -bottom-4 left-1/2 -translate-x-1/2"
+            >
+              <img
+                src="images/icon-paper.svg"
+                alt="Paper"
+                class="h-full w-full"
+              />
+            </button>
+          </div>
         </div>
 
         <button
