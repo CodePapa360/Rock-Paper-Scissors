@@ -11,76 +11,84 @@
       href="./images/favicon-32x32.png"
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    <title>Rock, Paper, Scissors game | by Alamin</title>
 
     <script type="module" src="./src/main.ts"></script>
   </head>
-  <body
-    class="grid grid-rows-[1fr_auto] grid-cols-1 bg-gradient-to-b from-bgGradientFrom to-bgGradientTo text-slate-200 p-6 min-h-screen select-none"
-  >
-    <div class="grid grid-rows-[auto_1fr]">
-      <header>
-        <div
-          class="flex justify-between items-center border-2 p-4 border-slate-400 rounded-md mb-4 pointer-events-none select-none"
-        >
-          <div class="max-w-28">
-            <img
-              class="h-full w-full object-contain"
-              src="images/logo.svg"
-              alt="Logo"
-            />
+  <body>
+    <div class=".top-container">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__logo">
+            <img class="header__logo-image" src="images/logo.svg" alt="Logo" />
           </div>
 
-          <div
-            class="bg-slate-100 rounded-md p-2 h-20 w-20 flex justify-center items-center flex-col"
-          >
-            <span class="text-blue-700 uppercase tracking-wider text-sm"
-              >Score</span
-            >
-            <span class="text-slate-600 text-4xl font-bold">12</span>
+          <div class="header__score">
+            <span class="header__score-label">Score</span>
+            <span class="header__score-value">12</span>
           </div>
         </div>
       </header>
 
-      <main
-        class="grid grid-cols-1 grid-rows-[1fr_auto] place-items-center mb-8"
-      >
-        <div class="my-8 w-full max-w-md">All steps should be here</div>
+      <main class="main-container">
+        <div class="game-container">
+          <div class="step-container step-1">
+            <img
+              class="triangle_image"
+              src="images/bg-triangle.svg"
+              alt="triangle"
+            />
 
-        <button
-          class="border-2 rounded-md tracking-wider px-4 py-2 border-slate-400 hover:bg-slate-400 hover:text-slate-800 transition-all select-none"
-        >
-          Rules
-        </button>
+            <button class="button-choise button-choise--paper">
+              <div class="button-choise__icon">
+                <img
+                  src="images/icon-paper.svg"
+                  alt="paper"
+                  class="button-choise__icon-img"
+                />
+              </div>
+            </button>
+
+            <button class="button-choise button-choise--rock">
+              <div class="button-choise__icon">
+                <img
+                  src="images/icon-rock.svg"
+                  alt="Rock"
+                  class="button-choise__icon-img"
+                />
+              </div>
+            </button>
+
+            <button class="button-choise button-choise--scissors">
+              <div class="button-choise__icon">
+                <img
+                  src="images/icon-scissors.svg"
+                  alt="scissors"
+                  class="button-choise__icon-img"
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <button class="btn-rule">Rules</button>
       </main>
     </div>
     <!--  -->
     <!-- Footer -->
     <!--  -->
-    <footer class="bg-slate-700 rounded-md text-white p-2">
-      <div class="text-center">
-        <p class="text-sm">
+    <footer class="footer">
+      <div class="footer__content">
+        <p class="footer__content-text">
           Coded by
-          <a
-            class="text-blue-400 hover:text-blue-300 transition-colors"
-            href="https://twitter.com/CodePapa360"
-            target="_blank"
-            >Alamin</a
-          >
+          <a href="https://twitter.com/CodePapa360" target="_blank"> Alamin </a>
           & Challenge by
           <a
-            class="text-blue-400 hover:text-blue-300 transition-colors"
             href="https://www.frontendmentor.io/profile/CodePapa360"
             target="_blank"
-            >Frontend Mentor</a
           >
+            Frontend Mentor
+          </a>
         </p>
       </div>
     </footer>

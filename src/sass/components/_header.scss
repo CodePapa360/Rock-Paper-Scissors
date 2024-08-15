@@ -1,0 +1,48 @@
+.header {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--header-outline);
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__logo {
+    max-width: 7rem;
+  }
+
+  &__logo-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__score {
+    background-color: var(--white);
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__score-label {
+    color: var(--score-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+  }
+
+  &__score-value {
+    color: var(--dark-text);
+    font-size: 2.25rem;
+    font-weight: bold;
+  }
+}
