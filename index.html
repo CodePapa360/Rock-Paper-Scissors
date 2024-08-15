@@ -23,7 +23,7 @@
     <script type="module" src="./src/main.ts"></script>
   </head>
   <body
-    class="grid grid-rows-[1fr_auto] grid-cols-1 bg-gradient-to-b from-bgGradientFrom to-bgGradientTo text-slate-200 p-6 min-h-screen"
+    class="grid grid-rows-[1fr_auto] grid-cols-1 bg-gradient-to-b from-bgGradientFrom to-bgGradientTo text-slate-200 p-6 min-h-screen select-none"
   >
     <div class="grid grid-rows-[auto_1fr]">
       <header>
@@ -59,35 +59,33 @@
             />
 
             <button
-              class="absolute w-32 h-w-32 -top-4 -left-4 bg-yellow-500 rounded-full p-4"
+              class="absolute -top-10 -left-10 w-32 h-32 bg-blue-500 rounded-full flex justify-center items-center"
             >
               <div
-                class="bg-white rounded-full p-7 shadow-inner shadow-slate-400"
+                class="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden h-24 w-24 flex justify-center items-center"
               >
-                <img
-                  src="images/icon-rock.svg"
-                  alt="Rock"
-                  class="h-full w-full"
-                />
+                <img src="images/icon-paper.svg" alt="Rock" class="w-10" />
               </div>
             </button>
 
-            <button class="absolute w-20 h-20 -top-4 -right-4">
-              <img
-                src="images/icon-scissors.svg"
-                alt="Scissors"
-                class="h-full w-full"
-              />
+            <button
+              class="absolute -top-10 -right-10 w-32 h-32 bg-red-500 rounded-full flex justify-center items-center"
+            >
+              <div
+                class="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden h-24 w-24 flex justify-center items-center"
+              >
+                <img src="images/icon-rock.svg" alt="Rock" class="w-10" />
+              </div>
             </button>
 
             <button
-              class="absolute w-20 h-20 -bottom-4 left-1/2 -translate-x-1/2"
+              class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-yellow-500 rounded-full flex justify-center items-center"
             >
-              <img
-                src="images/icon-paper.svg"
-                alt="Paper"
-                class="h-full w-full"
-              />
+              <div
+                class="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden h-24 w-24 flex justify-center items-center"
+              >
+                <img src="images/icon-scissors.svg" alt="Rock" class="w-10" />
+              </div>
             </button>
           </div>
         </div>
