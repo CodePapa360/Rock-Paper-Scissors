@@ -1,9 +1,10 @@
 import GameChoice from "../components/GameChoice";
+import { GameChoiceType } from "../types";
 
-export default function renderStep1({
+export default function startGame({
   handleChoice,
 }: {
-  handleChoice: (choice: string) => void;
+  handleChoice: (choice: GameChoiceType) => void;
 }) {
   const gameBoard = document.getElementById("game-board") as HTMLElement;
   const choices = ["rock", "paper", "scissors"] as const;
@@ -19,9 +20,11 @@ export default function renderStep1({
     />
     `;
 
+  gameBoard.innerHTML = "";
+
   gameBoard.appendChild(stepContainer);
 
-  choices.forEach((choice) => {
+  choices.forEach((choice: GameChoiceType) => {
     const button = GameChoice({
       name: choice,
       absulutePosition: true,

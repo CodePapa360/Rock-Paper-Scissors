@@ -4,6 +4,7 @@ function GameChoice({
   name,
   absulutePosition,
   onClick,
+  disabled,
 }: IGameChoiceProps): HTMLElement {
   const absoluteClasses = {
     rock: "absolute top-0 left-0",
@@ -26,7 +27,7 @@ function GameChoice({
   const choiceButton = document.createElement("div");
   choiceButton.className = `w-24 h-24 sm:h-32 sm:w-32 rounded-full flex justify-center items-center cursor-pointer ${colorClasses[name]} ${absulutePosition ? absoluteClasses[name] : ""}`;
 
-  if (onClick) {
+  if (!disabled && onClick) {
     choiceButton.addEventListener("click", onClick);
   }
 

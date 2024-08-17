@@ -1,4 +1,5 @@
-import renderGame from "./utils/renderGame";
+import { GameChoiceType, WinnerType } from "./types";
+import startGame from "./utils/startGame";
 import renderResult from "./utils/renderResult";
 
 // game steps variables
@@ -19,25 +20,29 @@ const playerScoreElement = document.getElementById(
   "player-score",
 ) as HTMLElement;
 
-function getRandomChoice(): (typeof choices)[number] {
+function getRandomChoice(): GameChoiceType {
   const randomIndex = Math.floor(Math.random() * choices.length);
   return choices[randomIndex];
 }
 
-function determineWinner(playerChoice: string, houseChoice: string): string {
+function determineWinner(
+  playerChoice: GameChoiceType,
+  houseChoice: GameChoiceType,
+): WinnerType {
   if (playerChoice === houseChoice) return "draw";
 
   return winningMap[playerChoice] === houseChoice ? "player" : "house";
 }
 
-function updatePlayerScore({ winner }: { winner?: string }) {
+function updatePlayerScore({ winner }: { winner: WinnerType }) {
   if (winner === "player") {
     playerScore += 1;
   }
-  playerScoreElement.textContent = String(playerScore);
+
+  playerScoreElement.textContent = playerScore.toString();
 }
 
-function handleChoice(playerChoice: string) {
+function handleChoice(playerChoice: GameChoiceType) {
   const houseChoice = getRandomChoice();
   const winner = determineWinner(playerChoice, houseChoice);
 
@@ -45,7 +50,12 @@ function handleChoice(playerChoice: string) {
   //   gameSteps += 1;
 
   updatePlayerScore({ winner });
-  renderResult({ playerChoice, houseChoice, winner });
+  renderResult({
+    playerChoice,
+    houseChoice,
+    winner,
+    playAgainAction: handleChoice,
+  });
 }
 
-renderGame({ handleChoice });
+startGame({ handleChoice });
