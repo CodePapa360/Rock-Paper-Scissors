@@ -10,7 +10,7 @@ export default function startGame({
   const choices = ["rock", "paper", "scissors"] as const;
 
   const stepContainer = document.createElement("div");
-  stepContainer.className = "relative w-full h-full";
+  stepContainer.className = "relative w-full h-full w-[80%] mx-auto";
 
   stepContainer.innerHTML = `
    <img

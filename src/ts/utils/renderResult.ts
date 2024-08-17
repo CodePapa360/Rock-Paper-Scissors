@@ -17,7 +17,7 @@ function renderResult({
 
   const stepContainer = document.createElement("div") as HTMLElement;
   stepContainer.className =
-    "grid grid-cols-2 grid-rows-1 gap-20 place-items-center";
+    "grid grid-cols-2 grid-rows-1 gap-y-10 gap-x-10 sm:gap-y-16 sm:gap-x-20 place-items-center";
 
   const playerContainer = document.createElement("div") as HTMLElement;
   playerContainer.className =
@@ -84,7 +84,7 @@ function renderResult({
     resultSection.className = "col-span-2 flex flex-col";
 
     const resultText = document.createElement("p") as HTMLElement;
-    resultText.className = "uppercase text-5xl mb-4";
+    resultText.className = "uppercase text-2xl sm:text-5xl mb-4";
     resultText.textContent =
       winner === "player"
         ? "You win"
