@@ -2,9 +2,6 @@ import { GameChoiceType, WinnerType } from "./types";
 import startGame from "./utils/startGame";
 import renderResult from "./utils/renderResult";
 
-// game steps variables
-// let gameSteps: number = 1;
-
 // player score variables
 let playerScore: number = 0;
 
@@ -36,18 +33,16 @@ function determineWinner(
 
 function updatePlayerScore({ winner }: { winner: WinnerType }) {
   if (winner === "player") {
-    playerScore += 1;
+    setTimeout(() => {
+      playerScore += 1;
+      playerScoreElement.textContent = playerScore.toString();
+    }, 1000);
   }
-
-  playerScoreElement.textContent = playerScore.toString();
 }
 
 function handleChoice(playerChoice: GameChoiceType) {
   const houseChoice = getRandomChoice();
   const winner = determineWinner(playerChoice, houseChoice);
-
-  // Update game steps
-  //   gameSteps += 1;
 
   updatePlayerScore({ winner });
   renderResult({
