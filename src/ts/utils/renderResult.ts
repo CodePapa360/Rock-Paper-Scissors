@@ -84,7 +84,7 @@ function renderResult({
     resultSection.className = "col-span-2 flex flex-col";
 
     const resultText = document.createElement("p") as HTMLElement;
-    resultText.className = "uppercase text-2xl sm:text-5xl mb-4";
+    resultText.className = "uppercase text-2xl sm:text-5xl mb-4 text-center";
     resultText.textContent =
       winner === "player"
         ? "You win"
