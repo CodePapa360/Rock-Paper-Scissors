@@ -1,4 +1,5 @@
 import GameChoice from "../components/GameChoice";
+import RuleDialog from "../components/RuleDialog";
 import { GameChoiceType } from "../types";
 
 export default function startGame({
@@ -33,4 +34,6 @@ export default function startGame({
 
     stepContainer.appendChild(button);
   });
+
+  RuleDialog();
 }

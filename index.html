@@ -25,6 +25,31 @@
   <body
     class="grid grid-cols-1 grid-rows-[1fr_auto] bg-gradient-to-b from-bgGradientFrom to-bgGradientTo text-white p-6 min-h-screen select-none"
   >
+    <!-- rule modal -->
+    <div
+      class="fixed inset-0 bg-black bg-opacity-50 justify-center items-center z-50 p-4 hidden"
+      id="rule-modal"
+    >
+      <div class="bg-white rounded-md p-4 max-w-md">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-bold text-slate-800">Rules</h2>
+
+          <button
+            class="rounded-full hover:bg-slate-500/10 p-3 transition-all"
+            id="close-button"
+          >
+            <img src="/images/icon-close.svg" alt="Close" />
+          </button>
+        </div>
+
+        <img
+          class="w-full h-auto object-contain"
+          src="images/image-rules.svg"
+          alt="Rules"
+        />
+      </div>
+    </div>
+    <!--  -->
     <div class="grid grid-rows-[auto_1fr]">
       <header>
         <div
@@ -62,6 +87,7 @@
 
         <button
           class="border-2 border-white rounded-md py-2 px-8 bg-transparent text-white transition-all duration-300 hover:bg-white hover:text-slate-800 cursor-pointer ml-auto"
+          id="rule-button"
         >
           Rules
         </button>
