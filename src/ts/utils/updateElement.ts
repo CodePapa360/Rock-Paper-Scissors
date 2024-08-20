@@ -1,4 +1,4 @@
-function UpdateElement({
+function updateElement({
   parentEl,
   childEl,
 }: {
@@ -14,4 +14,4 @@ function UpdateElement({
   }, 300);
 }
 
-export default UpdateElement;
+export default updateElement;

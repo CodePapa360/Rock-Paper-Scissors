@@ -3,7 +3,7 @@ import { choiceButtonType } from "../types";
 import determineWinner from "./determineWinner";
 import getRandomChoice from "./getRandomChoise";
 import startGame from "./startGame";
-import UpdateElement from "./updateElement";
+import updateElement from "./updateElement";
 import { updateScore } from "./updateScore";
 
 function renderWinner(playerChoice: choiceButtonType) {
@@ -65,10 +65,10 @@ function renderWinner(playerChoice: choiceButtonType) {
   stepContainer.appendChild(houseContainer);
 
   // update game board
-  UpdateElement({ parentEl: gameBoard, childEl: stepContainer });
+  updateElement({ parentEl: gameBoard, childEl: stepContainer });
 
   function appendHouseButton() {
-    UpdateElement({ parentEl: housePlaceholder, childEl: houseButton });
+    updateElement({ parentEl: housePlaceholder, childEl: houseButton });
     setTimeout(appendResultSection, delay / 1.5);
   }
 

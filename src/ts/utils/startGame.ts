@@ -1,7 +1,7 @@
 import choiceButton from "../components/choiceButton";
 import { choiceButtonType } from "../types";
 import renderWinner from "./renderWinner";
-import UpdateElement from "./updateElement";
+import updateElement from "./updateElement";
 
 export default function startGame() {
   const choices = ["rock", "paper", "scissors"] as const;
@@ -29,5 +29,5 @@ export default function startGame() {
   });
 
   // update game board
-  UpdateElement({ parentEl: gameBoard, childEl: stepContainer });
+  updateElement({ parentEl: gameBoard, childEl: stepContainer });
 }
