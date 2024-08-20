@@ -1,15 +1,16 @@
 import choiceButton from "../components/choiceButton";
 import { choiceButtonType } from "../types";
 import renderWinner from "./renderWinner";
-import updateGameBoard from "./updateGameBoard";
+import UpdateElement from "./updateElement";
 
 export default function startGame() {
   const choices = ["rock", "paper", "scissors"] as const;
 
+  const gameBoard = document.getElementById("game-board") as HTMLDivElement;
   const stepContainer = document.createElement("div") as HTMLDivElement;
   const triangleImage = document.createElement("img") as HTMLImageElement;
 
-  stepContainer.className = "relative w-full h-full w-[80%] mx-auto";
+  stepContainer.className = "relative w-full h-full max-w-[80%] mx-auto";
   triangleImage.className = "pointer-events-none select-none w-full p-8";
 
   triangleImage.src = "images/bg-triangle.svg";
@@ -28,5 +29,5 @@ export default function startGame() {
   });
 
   // update game board
-  updateGameBoard(stepContainer);
+  UpdateElement({ parentEl: gameBoard, childEl: stepContainer });
 }
