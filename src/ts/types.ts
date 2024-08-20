@@ -1,4 +1,3 @@
-// game choices
 export type choiceButtonType = "rock" | "paper" | "scissors";
 export type winnerType = "player" | "house" | "draw";
 
