@@ -1,17 +1,16 @@
 import choiceButton from "../components/choiceButton";
-import { choiceButtonType, winnerType } from "../types";
+import { choiceButtonType } from "../types";
+import determineWinner from "./determineWinner";
+import getRandomChoice from "./getRandomChoise";
 import startGame from "./startGame";
+import updateGameBoard from "./updateGameBoard";
+import { updateScore } from "./updateScore";
 
-function renderWinner({
-  playerChoice,
-  houseChoice,
-  winner,
-}: {
-  playerChoice: choiceButtonType;
-  houseChoice: choiceButtonType;
-  winner: winnerType;
-}) {
-  const gameBoard = document.getElementById("game-board") as HTMLDivElement;
+function renderWinner(playerChoice: choiceButtonType) {
+  const delay = 500;
+  const houseChoice = getRandomChoice();
+  const winner = determineWinner(playerChoice, houseChoice);
+
   const stepContainer = document.createElement("div") as HTMLDivElement;
   const playerContainer = document.createElement("div") as HTMLDivElement;
   const houseContainer = document.createElement("div") as HTMLDivElement;
@@ -64,11 +63,8 @@ function renderWinner({
   stepContainer.appendChild(playerContainer);
   stepContainer.appendChild(houseContainer);
 
-  // clear all elements inside game board before appending new elements
-  gameBoard.innerHTML = "";
-  gameBoard.appendChild(stepContainer);
-
-  const delay = 500;
+  // update game board
+  updateGameBoard(stepContainer);
 
   function appendHouseButton() {
     housePlaceholder.innerHTML = "";
@@ -81,6 +77,7 @@ function renderWinner({
     resultSection.appendChild(resultText);
     resultSection.appendChild(playAgainButton);
     stepContainer.appendChild(resultSection);
+    updateScore({ winner });
   }
 
   setTimeout(appendHouseButton, delay);

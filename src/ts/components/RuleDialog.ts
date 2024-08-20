@@ -1,13 +1,14 @@
 function ruleModal() {
-  const modal = document.getElementById("rule-modal") as HTMLElement;
-  const closeButton = document.getElementById("close-button") as HTMLElement;
-  const ruleButton = document.getElementById("rule-button") as HTMLElement;
+  const modal = document.getElementById("rule-modal") as HTMLDivElement;
+  const closeButton = document.getElementById(
+    "close-button",
+  ) as HTMLButtonElement;
+  const ruleButton = document.getElementById(
+    "rule-button",
+  ) as HTMLButtonElement;
 
   [closeButton, ruleButton].forEach((button) => {
-    button.addEventListener("click", () => {
-      modal.classList.toggle("flex");
-      modal.classList.toggle("hidden");
-    });
+    button.addEventListener("click", () => modal.classList.toggle("hidden"));
   });
 }
 
