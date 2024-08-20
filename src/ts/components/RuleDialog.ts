@@ -1,4 +1,4 @@
-function RuleModal() {
+function ruleModal() {
   const modal = document.getElementById("rule-modal") as HTMLElement;
   const closeButton = document.getElementById("close-button") as HTMLElement;
   const ruleButton = document.getElementById("rule-button") as HTMLElement;
@@ -11,4 +11,4 @@ function RuleModal() {
   });
 }
 
-export default RuleModal;
+export default ruleModal;

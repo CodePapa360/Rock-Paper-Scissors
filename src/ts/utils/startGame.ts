@@ -1,18 +1,17 @@
-import GameChoice from "../components/GameChoice";
-import RuleDialog from "../components/RuleDialog";
-import { GameChoiceType } from "../types";
+import choiceButton from "../components/choiceButton";
+import { choiceButtonType } from "../types";
+import determineWinner from "./determineWinner";
+import getRandomChoice from "./getRandomChoise";
+import renderWinner from "./renderWinner";
+import { updateScore } from "./updateScore";
 
-export default function startGame({
-  handleChoice,
-}: {
-  handleChoice: (choice: GameChoiceType) => void;
-}) {
-  const gameBoard = document.getElementById("game-board") as HTMLElement;
+export default function startGame() {
   const choices = ["rock", "paper", "scissors"] as const;
+  const gameBoard = document.getElementById("game-board") as HTMLElement;
 
+  // create step container
   const stepContainer = document.createElement("div");
   stepContainer.className = "relative w-full h-full w-[80%] mx-auto";
-
   stepContainer.innerHTML = `
    <img
       class="pointer-events-none select-none w-full p-8"
@@ -21,12 +20,13 @@ export default function startGame({
     />
     `;
 
+  // clear all elements inside game board before appending new elements
   gameBoard.innerHTML = "";
-
   gameBoard.appendChild(stepContainer);
 
-  choices.forEach((choice: GameChoiceType) => {
-    const button = GameChoice({
+  // create choice buttons
+  choices.forEach((choice: choiceButtonType) => {
+    const button = choiceButton({
       name: choice,
       absulutePosition: true,
       onClick: () => handleChoice(choice),
@@ -35,5 +35,16 @@ export default function startGame({
     stepContainer.appendChild(button);
   });
 
-  RuleDialog();
+  // handle choice click
+  function handleChoice(playerChoice: choiceButtonType) {
+    const houseChoice = getRandomChoice();
+    const winner = determineWinner(playerChoice, houseChoice);
+
+    updateScore({ winner });
+    renderWinner({
+      playerChoice,
+      houseChoice,
+      winner,
+    });
+  }
 }

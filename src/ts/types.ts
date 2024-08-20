@@ -1,9 +1,9 @@
 // game choices
-export type GameChoiceType = "rock" | "paper" | "scissors";
-export type WinnerType = "player" | "house" | "draw";
+export type choiceButtonType = "rock" | "paper" | "scissors";
+export type winnerType = "player" | "house" | "draw";
 
-export interface IGameChoiceProps {
-  name: GameChoiceType;
+export interface IchoiceButtonProps {
+  name: choiceButtonType;
   absulutePosition?: boolean;
   onClick?: () => void;
   disabled?: boolean;

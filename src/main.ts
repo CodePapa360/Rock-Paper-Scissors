@@ -1,3 +1,11 @@
 import "./index.css";
-import "./ts/Game.ts";
+import ruleModal from "./ts/components/ruleDialog.ts";
+import startGame from "./ts/utils/startGame.ts";
+
+function initGame() {
+  startGame();
+  ruleModal();
+}
+
+initGame();
 

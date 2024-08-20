@@ -1,11 +1,11 @@
-import { IGameChoiceProps } from "../types";
+import { IchoiceButtonProps } from "../types";
 
-function GameChoice({
+function choiceButton({
   name,
   absulutePosition,
   onClick,
   disabled,
-}: IGameChoiceProps): HTMLElement {
+}: IchoiceButtonProps): HTMLElement {
   const absoluteClasses = {
     rock: "absolute top-0 left-0",
     paper: "absolute top-0 right-0",
@@ -24,27 +24,30 @@ function GameChoice({
     scissors: "bg-yellow-500",
   };
 
+  // create the choice button
   const choiceButton = document.createElement("div");
-  choiceButton.className = `w-24 h-24 sm:h-32 sm:w-32 rounded-full flex justify-center items-center cursor-pointer ${colorClasses[name]} ${absulutePosition ? absoluteClasses[name] : ""}`;
+  choiceButton.className = `size-24 sm:size-32 rounded-full flex justify-center items-center cursor-pointer ${colorClasses[name]} ${absulutePosition ? absoluteClasses[name] : ""} ${disabled ? "pointer-events-none" : ""}`;
 
   if (!disabled && onClick) {
     choiceButton.addEventListener("click", onClick);
   }
 
+  // create the icon container
   const iconContainer = document.createElement("div");
   iconContainer.className =
-    "bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden h-3/4 w-3/4 flex justify-center items-center";
+    "bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden size-3/4 flex justify-center items-center";
 
   const iconImage = document.createElement("img");
   iconImage.alt = name;
   iconImage.className = "w-2/5";
-
   iconImage.src = imgSrc[name];
 
+  // append the icon to the icon container and the icon container to the choice button
   iconContainer.appendChild(iconImage);
   choiceButton.appendChild(iconContainer);
 
+  // return the choice button
   return choiceButton;
 }
 
-export default GameChoice;
+export default choiceButton;

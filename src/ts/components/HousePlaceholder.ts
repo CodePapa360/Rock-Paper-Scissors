@@ -1,4 +1,4 @@
-function HousePlaceholder() {
+function housePlaceholder() {
   return `
     <div class="flex md:flex-col-reverse flex-col gap-8 place-items-center h-full">
     <div class="flex justify-center items-center h-full">
@@ -9,4 +9,4 @@ function HousePlaceholder() {
     `;
 }
 
-export default HousePlaceholder;
+export default housePlaceholder;
