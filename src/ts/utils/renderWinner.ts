@@ -73,7 +73,7 @@ function renderWinner(playerChoice: choiceButtonType) {
   }
 
   function appendResultSection() {
-    playerButton.className = `${playerButton.className} relative before:absolute before:w-full before:h-full before:rounded-full before:bg-white before:opacity-10 before:z-[-1] before:scale-[1.3] after:absolute after:w-full after:h-full after:rounded-full after:bg-white after:opacity-5 after:z-[-2] after:scale-[1.7] before:shadow-[0_0_0_50px_rgba(255,255,255,.2)]`;
+    playerButton.className = `${playerButton.className} relative before:absolute before:w-full before:h-full before:rounded-full before:bg-white before:opacity-10 before:z-[-1] before:scale-[1.3] after:absolute after:w-full after:h-full after:rounded-full after:bg-white after:opacity-5 after:z-[-2] after:scale-[1.7] before:shadow-[0_0_0_40px_rgba(255,255,255,.2)]`;
     resultSection.appendChild(resultText);
     resultSection.appendChild(playAgainButton);
     stepContainer.appendChild(resultSection);
