@@ -44,7 +44,7 @@ This project is a solution to the Rock-Paper-Scissors challenge from Frontend Me
 ### Links
 
 - Live Site URL: [Click here](https://rps-game-codepapa360.vercel.app)
-- Solution URL: [Click here](https://your-solution-url.com)
+- Solution URL: [Click here](https://www.frontendmentor.io/solutions/rock-paper-scissors-game-with-typescript-fe6IN10Ent)
 
 ### The challenge
 
