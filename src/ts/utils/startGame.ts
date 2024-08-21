@@ -15,6 +15,7 @@ export default function startGame() {
   triangleImage.className = "pointer-events-none select-none w-full p-8";
 
   triangleImage.src = "images/bg-triangle.svg";
+  triangleImage.alt = "triangle background";
 
   stepContainer.appendChild(triangleImage);
 
