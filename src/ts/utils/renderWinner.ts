@@ -77,7 +77,7 @@ function renderWinner(playerChoice: choiceButtonType) {
     resultSection.appendChild(resultText);
     resultSection.appendChild(playAgainButton);
     stepContainer.appendChild(resultSection);
-    updateScore({ winner });
+    updateScore({ winner, firstTime: false });
   }
 
   setTimeout(appendHouseButton, delay);
