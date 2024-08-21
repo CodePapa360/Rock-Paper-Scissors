@@ -116,12 +116,52 @@
     />
   </head>
   <body
-    class="grid grid-cols-1 grid-rows-[1fr_auto] bg-gradient-to-b from-bgGradientFrom to-bgGradientTo text-white p-6 min-h-screen select-none"
+    class="grid grid-cols-1 grid-rows-[auto_1fr_auto] bg-gradient-to-b from-bgGradientFrom to-bgGradientTo text-white p-6 min-h-screen select-none"
   >
     <h1 class="sr-only">Welcome to the Rock-Paper-Scissors Game by Alamin</h1>
 
-    <!-- rule modal -->
-    <div
+    <header>
+      <div
+        class="flex justify-between items-center border-2 p-4 border-slate-400 rounded-md mb-4 pointer-events-none select-none max-w-3xl mx-auto"
+      >
+        <div class="max-w-[7rem]">
+          <img
+            class="h-full w-full object-contain"
+            src="images/logo.svg"
+            alt="Logo"
+          />
+        </div>
+
+        <div
+          class="bg-white rounded-md p-2 h-20 w-20 flex justify-center items-center flex-col"
+        >
+          <span class="text-blue-700 uppercase tracking-wider text-sm"
+            >Score</span
+          >
+          <span class="text-slate-600 text-4xl font-bold" id="player-score"
+            >0</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="grid grid-cols-1 grid-rows-[1fr_auto] place-items-center mb-8">
+      <div
+        class="mt-8 mb-8 w-full max-w-md transition-all duration-300"
+        id="game-board"
+      >
+        <!-- Game Steps -->
+      </div>
+
+      <button
+        class="border-2 border-white rounded-md py-2 px-8 bg-transparent text-white transition-all duration-300 hover:bg-white hover:text-slate-800 cursor-pointer ml-auto"
+        id="rule-button"
+      >
+        Rules
+      </button>
+    </main>
+
+    <aside
       class="fixed inset-0 bg-black bg-opacity-50 justify-center items-center z-50 p-4 flex hidden"
       id="rule-modal"
     >
@@ -143,57 +183,8 @@
           alt="Rules"
         />
       </div>
-    </div>
-    <!--  -->
-    <div class="grid grid-rows-[auto_1fr]">
-      <header>
-        <div
-          class="flex justify-between items-center border-2 p-4 border-slate-400 rounded-md mb-4 pointer-events-none select-none max-w-3xl mx-auto"
-        >
-          <div class="max-w-[7rem]">
-            <img
-              class="h-full w-full object-contain"
-              src="images/logo.svg"
-              alt="Logo"
-            />
-          </div>
+    </aside>
 
-          <div
-            class="bg-white rounded-md p-2 h-20 w-20 flex justify-center items-center flex-col"
-          >
-            <span class="text-blue-700 uppercase tracking-wider text-sm"
-              >Score</span
-            >
-            <span class="text-slate-600 text-4xl font-bold" id="player-score"
-              >0</span
-            >
-          </div>
-        </div>
-      </header>
-
-      <main
-        class="grid grid-cols-1 grid-rows-[1fr_auto] place-items-center mb-8"
-      >
-        <div
-          class="mt-8 mb-8 w-full max-w-md transition-all duration-300"
-          id="game-board"
-        >
-          <!-- Steps -->
-
-          <!-- End step -->
-        </div>
-
-        <button
-          class="border-2 border-white rounded-md py-2 px-8 bg-transparent text-white transition-all duration-300 hover:bg-white hover:text-slate-800 cursor-pointer ml-auto"
-          id="rule-button"
-        >
-          Rules
-        </button>
-      </main>
-    </div>
-    <!--  -->
-    <!-- Footer -->
-    <!--  -->
     <footer class="bg-slate-700 rounded-md text-white p-2">
       <div class="text-center">
         <p class="text-sm">
