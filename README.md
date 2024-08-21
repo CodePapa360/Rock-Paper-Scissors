@@ -2,7 +2,7 @@
 
 <h2 align="center">
 
-[🖱️Live Website](https://rest-countries-codepapa.vercel.app)
+[🖱️Live Website](https://rps-game-codepapa360.vercel.app)
 
 </h2>
 
@@ -23,7 +23,7 @@ This project is a solution to the Rock-Paper-Scissors challenge from Frontend Me
 </p>
 
 <!-- Screenshot -->
-<a align="center" href="https://rest-countries-codepapa.vercel.app">
+<a align="center" href="https://rps-game-codepapa360.vercel.app">
 
 ![Screenshot](./public/images/rps-game-thumbnail.webp)
 
