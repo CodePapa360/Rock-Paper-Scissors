@@ -1,4 +1,4 @@
-<h1 align="center">Rock, Paper, Scissors game</h1>
+<h1 align="center">Rock, Paper, Scissors game v2</h1>
 
 <h2 align="center">
 
@@ -19,7 +19,7 @@
 
 <!-- Brief -->
 <p align="center">
-This project is a solution to the Rock-Paper-Scissors challenge from Frontend Mentor. Initially built with vanilla JavaScript, the main objective was to practice TypeScript while solidifying core web development concepts. I plan to further enhance the project by transitioning it to React with TypeScript.
+This project is a solution to the Rock-Paper-Scissors challenge from Frontend Mentor. Initially built with vanilla TypeScript, and now in React with TypeScript. The main objective was to practice TypeScript.
 </p>
 
 <!-- Screenshot -->
@@ -35,7 +35,6 @@ This project is a solution to the Rock-Paper-Scissors challenge from Frontend Me
 - [The challenge](#the-challenge)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
-- [Continued development](#continued-development)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
@@ -55,6 +54,7 @@ Users should be able to:
 
 ## Built with
 
+- React
 - TypeScript
 - Tailwind CSS
 - HTML5
@@ -63,11 +63,7 @@ Users should be able to:
 
 ## What I Learned
 
-Through this project, I strengthened my understanding of TypeScript in a vanilla JavaScript environment. It allowed me to explore static typing, improve code clarity, and enforce safer coding practices. Additionally, I gained hands-on experience in DOM manipulation using TypeScript, even without a framework. As I move forward with converting this project to React, I’m excited to deepen my experience with TypeScript, focusing on React components, JSX, and state management.
-
-## Continued Development:
-
-Next, I will refactor this project to React, utilizing TypeScript for better component structure and state management. My focus will be on improving reusability, type safety, and exploring testing strategies for React and TypeScript.
+Through this project, I strengthened my understanding of TypeScript in a vanilla JavaScript environment and from v2 in React with TypeScript. It allowed me to explore static typing, improve code clarity, and enforce safer coding practices.
 
 ## Installation
 
@@ -113,4 +109,3 @@ The project was inspired by [this](https://www.frontendmentor.io/challenges/rock
 ## License
 
 This project is licensed under the [Apache License 2.0](./LICENSE.md) License - see the LICENSE file for details.
-
