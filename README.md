@@ -33,10 +33,9 @@ This project is a solution to the Rock-Paper-Scissors challenge from Frontend Me
 
 - [Links](#links)
 - [The challenge](#the-challenge)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
+- [Built with](#built-with)
+- [What I learned](#what-i-learned)
+- [Continued development](#continued-development)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
