@@ -15,10 +15,9 @@ const initialState: GameStateType = {
 };
 
 // Define the context type
-interface IGameContext {
-  state: GameStateType;
+interface IGameContext extends GameStateType {
   dispatch: Dispatch<ActionType>;
-  updateScore: (score: number) => void;
+  updateScore: () => void;
   updateStep: (step: number) => void;
   setUserChoice: (choice: choiceButtonType) => void;
   replay: () => void;
@@ -30,7 +29,7 @@ const GameContext = createContext<IGameContext | undefined>(undefined);
 function reducer(state: GameStateType, action: ActionType) {
   switch (action.type) {
     case "UPDATE_SCORE":
-      return { ...state, score: action.payload };
+      return { ...state, score: state.score + 1 };
     case "UPDATE_STEP":
       return { ...state, step: action.payload };
     case "SET_USER_CHOICE":
@@ -50,10 +49,13 @@ function reducer(state: GameStateType, action: ActionType) {
 }
 
 function GameProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [{ score, step, userChoice, choices }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
-  function updateScore(score: number) {
-    dispatch({ type: "UPDATE_SCORE", payload: score });
+  function updateScore() {
+    dispatch({ type: "UPDATE_SCORE" });
   }
   function updateStep(step: number) {
     dispatch({ type: "UPDATE_STEP", payload: step });
@@ -68,7 +70,10 @@ function GameProvider({ children }: { children: ReactNode }) {
     dispatch({ type: "RESET" });
   }
   const value: IGameContext = {
-    state,
+    score,
+    step,
+    userChoice,
+    choices,
     dispatch,
     updateScore,
     updateStep,

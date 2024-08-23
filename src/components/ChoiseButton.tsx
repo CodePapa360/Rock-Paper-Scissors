@@ -1,10 +1,6 @@
 import { choiceButtonPropType, choiceButtonType } from "../types";
 
-function ChoiseButton({
-  name,
-  onClickAction,
-  disabled,
-}: choiceButtonPropType): JSX.Element {
+function ChoiseButton({ name, onClickAction, disabled }: choiceButtonPropType) {
   const buttons = {
     rock: {
       color: "bg-red-500",

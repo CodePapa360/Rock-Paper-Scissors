@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { BiReset } from "react-icons/bi";
+import { useGame } from "../context/gameContext";
 
 function Header() {
-  const [playerScore, setPlayerScore] = useState(0);
+  const { score, reset } = useGame();
 
   return (
     <header>
@@ -21,11 +21,11 @@ function Header() {
         <div className="relative bg-white rounded-md p-2 size-28 flex justify-center items-center flex-col overflow-hidden">
           <span className="text-blue-700 uppercase tracking-wider">Score</span>
           <span className="text-slate-600 text-4xl font-bold" id="player-score">
-            {playerScore}
+            {score}
           </span>
 
           <button
-            onClick={() => setPlayerScore(0)}
+            onClick={() => reset()}
             className="absolute bottom-0 right-0 p-2 bg-slate-200 text-slate-600 rounded-md cursor-pointer"
           >
             <BiReset size={22} />

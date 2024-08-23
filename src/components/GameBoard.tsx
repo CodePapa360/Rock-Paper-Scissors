@@ -1,27 +1,17 @@
-function GameBoard() {
-  // const [score, setScore] = useState<number>(0);
-  // const [step, setStep] = useState<number>(1);
-  // const [userChoice, setUserChoice] = useState<choiceButtonType | null>(null);
-  // const buttons: choiceButtonType[] = ["rock", "paper", "scissors"];
+import { useGame } from "../context/gameContext";
+import ChoiseButton from "./ChoiseButton";
 
-  // function handleClick(choice: choiceButtonType) {
-  //   setStep(1);
-  //   console.log(choice);
-  // }
+function GameBoard() {
+  const { score, step, choices } = useGame();
+
+  console.log(choices, score, step);
 
   return (
     <div className="flex justify-center items-center">
-      {/* <div>
+      <div>
         {step === 1 &&
-          buttons.map((button: choiceButtonType) => (
-            <ChoiseButton
-              key={button}
-              name={button}
-              onClickAction={handleClick}
-              disabled={false}
-            />
-          ))}
-      </div> */}
+          choices.map((choice) => <ChoiseButton key={choice} name={choice} />)}
+      </div>
     </div>
   );
 }

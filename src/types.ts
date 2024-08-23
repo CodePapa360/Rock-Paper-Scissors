@@ -10,13 +10,13 @@ export type choiceButtonPropType = {
 export type GameStateType = {
   score: number;
   step: number;
-  userChoice: string | null;
-  choices: string[];
+  userChoice: choiceButtonType | null;
+  choices: choiceButtonType[];
 };
 
 export type ActionType =
-  | { type: "UPDATE_SCORE"; payload: number }
+  | { type: "UPDATE_SCORE" }
   | { type: "UPDATE_STEP"; payload: number }
-  | { type: "SET_USER_CHOICE"; payload: string | null }
+  | { type: "SET_USER_CHOICE"; payload: choiceButtonType | null }
   | { type: "REPLAY" }
   | { type: "RESET" };
