@@ -3,10 +3,10 @@ import { choiceButtonType } from "../types";
 import ChoiseButton from "./ChoiseButton";
 
 function GameBoard() {
-  const { step, choices, updateStep, setUserChoice } = useGame();
+  const { step, choices, updateStep, updateChoice } = useGame();
 
-  function handleClickAction(name: choiceButtonType) {
-    setUserChoice(name);
+  function handleClickAction(choice: choiceButtonType) {
+    updateChoice(choice);
     updateStep(2);
   }
 

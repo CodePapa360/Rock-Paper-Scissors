@@ -1,4 +1,9 @@
-import { ActionType, choiceButtonType, GameStateType } from "../types";
+import {
+  ActionType,
+  choiceButtonType,
+  GameStateType,
+  WinnerType,
+} from "../types";
 import determineWinner from "../utils/determineWinner.ts";
 import getRandomChoise from "../utils/getRandomChoise.ts";
 import {
@@ -23,7 +28,7 @@ interface IGameContext extends GameStateType {
   dispatch: Dispatch<ActionType>;
   updateScore: () => void;
   updateStep: (step: number) => void;
-  setUserChoice: (choice: choiceButtonType) => void;
+  updateChoice: (choice: choiceButtonType) => void;
   replay: () => void;
   reset: () => void;
 }
@@ -63,33 +68,36 @@ function GameProvider({ children }: { children: ReactNode }) {
   function updateScore() {
     dispatch({ type: "UPDATE_SCORE" });
   }
+
   function updateStep(step: number) {
     dispatch({ type: "UPDATE_STEP", payload: step });
   }
-  function setUserChoice(choice: choiceButtonType) {
+
+  function updateChoice(choice: choiceButtonType) {
+    // Update user choice
     dispatch({ type: "SET_USER_CHOICE", payload: choice });
 
-    setHouseChoice();
-    setWinner();
-  }
-  function setHouseChoice() {
+    // Update house choice
     const houseChoice = getRandomChoise(choices);
     dispatch({ type: "SET_HOUSE_CHOICE", payload: houseChoice });
+
+    // Update winner
+    const winner = determineWinner(choice, houseChoice);
+    setWinner(winner);
   }
 
-  function setWinner() {
-    if (userChoice && houseChoice) {
-      const winner = determineWinner(userChoice, houseChoice);
-      dispatch({ type: "SET_WINNER", payload: winner });
-    }
+  function setWinner(winner: WinnerType) {
+    dispatch({ type: "SET_WINNER", payload: winner });
   }
 
   function replay() {
     dispatch({ type: "REPLAY" });
   }
+
   function reset() {
     dispatch({ type: "RESET" });
   }
+
   const value: IGameContext = {
     score,
     step,
@@ -101,7 +109,7 @@ function GameProvider({ children }: { children: ReactNode }) {
     dispatch,
     updateScore,
     updateStep,
-    setUserChoice,
+    updateChoice,
     replay,
     reset,
   };
