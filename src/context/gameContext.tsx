@@ -1,4 +1,6 @@
 import { ActionType, choiceButtonType, GameStateType } from "../types";
+import determineWinner from "../utils/determineWinner.ts";
+import getRandomChoise from "../utils/getRandomChoise.ts";
 import {
   createContext,
   Dispatch,
@@ -11,6 +13,8 @@ const initialState: GameStateType = {
   score: 0,
   step: 1,
   userChoice: null,
+  houseChoice: null,
+  winner: null,
   choices: ["rock", "paper", "scissors"],
 };
 
@@ -34,6 +38,10 @@ function reducer(state: GameStateType, action: ActionType) {
       return { ...state, step: action.payload };
     case "SET_USER_CHOICE":
       return { ...state, userChoice: action.payload };
+    case "SET_HOUSE_CHOICE":
+      return { ...state, houseChoice: action.payload };
+    case "SET_WINNER":
+      return { ...state, winner: action.payload };
     case "REPLAY":
       return {
         ...initialState,
@@ -49,10 +57,8 @@ function reducer(state: GameStateType, action: ActionType) {
 }
 
 function GameProvider({ children }: { children: ReactNode }) {
-  const [{ score, step, userChoice, choices }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ score, step, userChoice, houseChoice, winner, choices }, dispatch] =
+    useReducer(reducer, initialState);
 
   function updateScore() {
     dispatch({ type: "UPDATE_SCORE" });
@@ -62,7 +68,22 @@ function GameProvider({ children }: { children: ReactNode }) {
   }
   function setUserChoice(choice: choiceButtonType) {
     dispatch({ type: "SET_USER_CHOICE", payload: choice });
+
+    setHouseChoice();
+    setWinner();
   }
+  function setHouseChoice() {
+    const houseChoice = getRandomChoise(choices);
+    dispatch({ type: "SET_HOUSE_CHOICE", payload: houseChoice });
+  }
+
+  function setWinner() {
+    if (userChoice && houseChoice) {
+      const winner = determineWinner(userChoice, houseChoice);
+      dispatch({ type: "SET_WINNER", payload: winner });
+    }
+  }
+
   function replay() {
     dispatch({ type: "REPLAY" });
   }
@@ -73,7 +94,10 @@ function GameProvider({ children }: { children: ReactNode }) {
     score,
     step,
     userChoice,
+    houseChoice,
+    winner,
     choices,
+
     dispatch,
     updateScore,
     updateStep,
@@ -92,4 +116,5 @@ function useGame() {
   return context;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { GameProvider, useGame };

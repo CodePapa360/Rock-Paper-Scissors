@@ -1,4 +1,4 @@
-import { choiceButtonPropType, choiceButtonType } from "../types";
+import { choiceButtonPropType } from "../types";
 
 function ChoiseButton({
   name,
@@ -26,14 +26,14 @@ function ChoiseButton({
 
   function handleClick() {
     if (onClickAction && !disabled) {
-      onClickAction(name as choiceButtonType);
+      onClickAction(name);
     }
   }
 
   return (
     <button
       onClick={handleClick}
-      className={`size-32 sm:size-[12rem] rounded-full flex justify-center items-center cursor-pointer transition-all ${
+      className={`active:size-28 size-32 sm:size-48 sm:active:size-44 rounded-full flex justify-center items-center cursor-pointer transition-all ${
         buttons[name].color
       } ${disabled ? "pointer-events-none" : ""} ${
         absulutePosition ? buttons[name].position : ""
