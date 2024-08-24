@@ -8,10 +8,10 @@ function App() {
   const [isRulesOpen, setIsRulesOpen] = useState(false);
 
   return (
-    <div className="grid grid-rows-[1fr_auto] min-h-screen p-2 bg-gradient-to-b from-slate-800 to-slate-900">
+    <div className="grid grid-rows-[1fr_auto] min-h-screen p-2 bg-gradient-to-b from-slate-800 to-slate-900 overflow-x-hidden">
       {isRulesOpen && <RulePopup closeRule={setIsRulesOpen} />}
 
-      <main className="grid grid-rows-[auto_1fr_auto] p-6">
+      <main className="grid grid-rows-[auto_1fr_auto] p-6 overflow-hidden">
         <Header />
         <GameBoard />
         <button

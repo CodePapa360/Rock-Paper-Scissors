@@ -27,7 +27,7 @@ const initialState: GameStateType = {
 // Define the context type
 interface IGameContext extends GameStateType {
   dispatch: Dispatch<ActionType>;
-  updateScore: (score: number) => void;
+  updateScore: (score?: number) => void;
   updateStep: (step: number) => void;
   updateChoice: (choice: choiceButtonType) => void;
   replay: () => void;
@@ -92,9 +92,9 @@ function GameProvider({ children }: { children: ReactNode }) {
     setWinner(winner);
 
     // Update score
-    if (winner === "player") {
-      updateScore();
-    }
+    // if (winner === "player") {
+    //   updateScore();
+    // }
   }
 
   function setWinner(winner: WinnerType) {
@@ -117,6 +117,7 @@ function GameProvider({ children }: { children: ReactNode }) {
     if (storageScore) {
       updateScore(parseInt(storageScore));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const value: IGameContext = {
