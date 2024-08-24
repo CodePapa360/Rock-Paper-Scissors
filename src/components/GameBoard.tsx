@@ -6,7 +6,7 @@ function GameBoard() {
   const { step } = useGame();
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center flex-col">
       {step === 1 && <FirstStep />}
       {step === 2 && <SecondStep />}
     </div>
