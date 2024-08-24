@@ -7,7 +7,9 @@ function SecondStep() {
   const [thinking, setThinking] = useState(true);
   const [showResult, setShowResult] = useState(false);
 
-  const delay = 1300;
+  console.log("winner", winner);
+
+  const delay = 1200;
 
   useEffect(() => {
     const thinkingTimeout = setTimeout(() => {
@@ -28,11 +30,16 @@ function SecondStep() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center flex-col gap-10">
-      <div className="flex gap-4 sm:gap-10">
+    <div className="flex items-center justify-center flex-col gap-10 sm:gap-14">
+      <div className="flex gap-4 sm:gap-20">
         <div className="flex md:flex-col-reverse flex-col gap-8 place-items-center h-full">
           {userChoice && (
-            <ChoiseButton name={userChoice} disabled={true} size="large" />
+            <ChoiseButton
+              name={userChoice}
+              isWinner={!thinking && winner === "player"}
+              disabled={true}
+              size="large"
+            />
           )}
           <p className="uppercase text-center tracking-widest text-base md:text-2xl">
             You picked
@@ -40,14 +47,20 @@ function SecondStep() {
         </div>
 
         <div className="flex md:flex-col-reverse flex-col gap-8 place-items-center h-full">
-          {houseChoice && !thinking && (
-            <ChoiseButton name={houseChoice} disabled={true} size="large" />
-          )}
-          {thinking && (
+          {thinking ? (
             <div className="relative bg-slate-700/20 rounded-full size-24 sm:size-40 md:size-60 flex justify-center items-center text-2xl select-none p-4">
               <span className="absolute animate-ping size-1/2 bg-slate-700/60 rounded-full"></span>
               <span className="absolute animate-ping size-4/5 bg-slate-700/60 rounded-full"></span>
             </div>
+          ) : (
+            houseChoice && (
+              <ChoiseButton
+                name={houseChoice}
+                isWinner={winner === "house"}
+                disabled={true}
+                size="large"
+              />
+            )
           )}
           <p className="uppercase text-center tracking-widest text-base md:text-2xl">
             House picked

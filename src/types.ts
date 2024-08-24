@@ -6,6 +6,7 @@ export type choiceButtonPropType = {
   onClickAction?: (choice: choiceButtonType) => void;
   disabled?: boolean;
   size: "normal" | "large";
+  isWinner?: boolean;
 };
 
 export type GameStateType = {
