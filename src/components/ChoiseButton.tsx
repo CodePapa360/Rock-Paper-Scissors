@@ -5,7 +5,13 @@ function ChoiseButton({
   onClickAction,
   disabled,
   absulutePosition,
+  size,
 }: choiceButtonPropType) {
+  const sizeClass = {
+    normal: "size-24 sm:size-40 md:size-48 sm:active:size-44 active:size-28",
+    large: "size-24 sm:size-40 md:size-72 sm:active:size-56 active:size-40",
+  };
+
   const buttons = {
     rock: {
       color: "bg-red-500",
@@ -33,7 +39,9 @@ function ChoiseButton({
   return (
     <button
       onClick={handleClick}
-      className={`active:size-28 size-32 sm:size-48 sm:active:size-44 rounded-full flex justify-center items-center cursor-pointer transition-all ${
+      className={`${
+        sizeClass[size]
+      } rounded-full flex justify-center items-center cursor-pointer transition-all ${
         buttons[name].color
       } ${disabled ? "pointer-events-none" : ""} ${
         absulutePosition ? buttons[name].position : ""
@@ -41,7 +49,11 @@ function ChoiseButton({
       ${!disabled ? "hover:scale-105" : ""}`}
     >
       <div className="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden size-3/4 flex justify-center items-center">
-        <img src={buttons[name].img} className="w-2/5" alt={name} />
+        <img
+          src={buttons[name].img}
+          className="w-2/5 select-none pointer-events-none"
+          alt={name}
+        />
       </div>
     </button>
   );

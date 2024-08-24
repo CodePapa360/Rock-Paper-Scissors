@@ -84,6 +84,11 @@ function GameProvider({ children }: { children: ReactNode }) {
     // Update winner
     const winner = determineWinner(choice, houseChoice);
     setWinner(winner);
+
+    // Update score
+    if (winner === "player") {
+      updateScore();
+    }
   }
 
   function setWinner(winner: WinnerType) {

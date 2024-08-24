@@ -30,6 +30,7 @@ function Header() {
           </span>
 
           <button
+            title="Reset Score"
             onClick={() => reset()}
             className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-200 text-slate-600 rounded-md cursor-pointer"
           >
