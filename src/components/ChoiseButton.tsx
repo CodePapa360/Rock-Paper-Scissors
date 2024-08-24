@@ -8,8 +8,10 @@ function ChoiseButton({
   size,
 }: choiceButtonPropType) {
   const sizeClass = {
-    normal: "size-24 sm:size-40 md:size-48 sm:active:size-44 active:size-28",
-    large: "size-24 sm:size-40 md:size-60 sm:active:size-56 active:size-40",
+    normal:
+      "size-24 sm:size-40 md:size-48 active:size-20 sm:active:size-36 md:active:size-44",
+    large:
+      "size-24 sm:size-40 md:size-60 active:size-20 sm:active:size-36 md:active:size-56",
   };
 
   const buttons = {
