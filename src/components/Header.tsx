@@ -29,13 +29,15 @@ function Header() {
             {score}
           </span>
 
-          <button
-            title="Reset Score"
-            onClick={() => reset()}
-            className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-200 text-slate-600 rounded-md cursor-pointer"
-          >
-            <BiReset size={22} />
-          </button>
+          {score > 0 && (
+            <button
+              title="Reset Score"
+              onClick={() => reset()}
+              className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-200 text-slate-600 hover:bg-slate-300 transition-all rounded-md cursor-pointer"
+            >
+              <BiReset size={22} />
+            </button>
+          )}
         </div>
       </div>
     </header>
