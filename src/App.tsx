@@ -14,7 +14,6 @@ function App() {
       <main className="grid grid-rows-[auto_1fr_auto] p-6">
         <Header />
         <GameBoard />
-
         <button
           onClick={() => setIsRulesOpen(!isRulesOpen)}
           className="uppercase ml-auto mr-auto sm:ml-auto sm:mr-0 transition-all tracking-widest mt-2 bg-slate-800/10 px-10 py-2 border-2 rounded-lg border-slate-100 text-slate-100 hover:bg-slate-100 hover:text-slate-800"

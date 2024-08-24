@@ -18,7 +18,7 @@ export type GameStateType = {
 };
 
 export type ActionType =
-  | { type: "UPDATE_SCORE" }
+  | { type: "UPDATE_SCORE"; payload: number }
   | { type: "UPDATE_STEP"; payload: number }
   | { type: "SET_USER_CHOICE"; payload: choiceButtonType }
   | { type: "SET_HOUSE_CHOICE"; payload: choiceButtonType }

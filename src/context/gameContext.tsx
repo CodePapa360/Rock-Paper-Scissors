@@ -11,6 +11,7 @@ import {
   Dispatch,
   ReactNode,
   useContext,
+  useEffect,
   useReducer,
 } from "react";
 
@@ -26,7 +27,7 @@ const initialState: GameStateType = {
 // Define the context type
 interface IGameContext extends GameStateType {
   dispatch: Dispatch<ActionType>;
-  updateScore: () => void;
+  updateScore: (score: number) => void;
   updateStep: (step: number) => void;
   updateChoice: (choice: choiceButtonType) => void;
   replay: () => void;
@@ -38,7 +39,7 @@ const GameContext = createContext<IGameContext | undefined>(undefined);
 function reducer(state: GameStateType, action: ActionType) {
   switch (action.type) {
     case "UPDATE_SCORE":
-      return { ...state, score: state.score + 1 };
+      return { ...state, score: action.payload };
     case "UPDATE_STEP":
       return { ...state, step: action.payload };
     case "SET_USER_CHOICE":
@@ -65,8 +66,13 @@ function GameProvider({ children }: { children: ReactNode }) {
   const [{ score, step, userChoice, houseChoice, winner, choices }, dispatch] =
     useReducer(reducer, initialState);
 
-  function updateScore() {
-    dispatch({ type: "UPDATE_SCORE" });
+  function updateScore(storageScore?: number) {
+    if (storageScore) {
+      dispatch({ type: "UPDATE_SCORE", payload: storageScore });
+    } else {
+      dispatch({ type: "UPDATE_SCORE", payload: score + 1 });
+      localStorage.setItem("playerScore", String(score + 1));
+    }
   }
 
   function updateStep(step: number) {
@@ -101,7 +107,17 @@ function GameProvider({ children }: { children: ReactNode }) {
 
   function reset() {
     dispatch({ type: "RESET" });
+
+    localStorage.removeItem("playerScore");
   }
+
+  // utilizing local storage to save the score so when the user refresh the page the score will be saved
+  useEffect(() => {
+    const storageScore = localStorage.getItem("playerScore");
+    if (storageScore) {
+      updateScore(parseInt(storageScore));
+    }
+  }, []);
 
   const value: IGameContext = {
     score,
