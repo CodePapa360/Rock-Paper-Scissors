@@ -1,4 +1,4 @@
-<h1 align="center">Rock, Paper, Scissors game v2</h1>
+<h1 align="center">Rock, Paper, Scissors Game v2</h1>
 
 <h2 align="center">
 
@@ -19,7 +19,7 @@
 
 <!-- Brief -->
 <p align="center">
-This project is a solution to the Rock-Paper-Scissors challenge from Frontend Mentor. Initially built with vanilla TypeScript, and now in React with TypeScript. The main objective was to practice TypeScript.
+Initially built with vanilla TypeScript, the Rock, Paper, Scissors game is now upgraded to React with TypeScript. This project showcases my focus on learning and practicing TypeScript fundamentals, both in a vanilla JavaScript environment and now through React.
 </p>
 
 <!-- Screenshot -->
@@ -35,6 +35,7 @@ This project is a solution to the Rock-Paper-Scissors challenge from Frontend Me
 - [The challenge](#the-challenge)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
+- [Future Upgrades](#future-upgrades)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
@@ -63,7 +64,11 @@ Users should be able to:
 
 ## What I Learned
 
-Through this project, I strengthened my understanding of TypeScript in a vanilla JavaScript environment and from v2 in React with TypeScript. It allowed me to explore static typing, improve code clarity, and enforce safer coding practices.
+Through this project, I strengthened my understanding of TypeScript in both a vanilla JavaScript environment and from v2 in React with TypeScript. It allowed me to explore static typing, improve code clarity, and enforce safer coding practices.
+
+## Future Upgrades
+
+I plan to continue enhancing this project by incorporating **Framer Motion**. This will allow me to practice and learn animation techniques for smoother, more interactive user experiences, further improving the UI and making the game more engaging.
 
 ## Installation
 
