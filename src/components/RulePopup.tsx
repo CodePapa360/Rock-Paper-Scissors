@@ -14,7 +14,6 @@ function RulePopup({ closeRule }: { closeRule: (state: boolean) => void }) {
         y: 0,
       }}
       transition={{
-        // duration: 1,
         ease: "backInOut",
       }}
       exit={{
@@ -35,13 +34,15 @@ function RulePopup({ closeRule }: { closeRule: (state: boolean) => void }) {
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-bold text-slate-800">Rules</h2>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: 90 }}
+            whileTap={{ scale: 0.9 }}
             onClick={() => closeRule(false)}
-            className="rounded-full hover:bg-slate-500/10 p-3 transition-all"
+            className="rounded-full hover:bg-slate-500/10 p-3"
             id="close-button"
           >
             <img src="/images/icon-close.svg" alt="Close" />
-          </button>
+          </motion.button>
         </div>
 
         <img
