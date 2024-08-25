@@ -1,8 +1,8 @@
-<h1 align="center">Rock, Paper, Scissors Game v3</h1>
+<h1 align="center">Rock, Paper, Scissors Game v2</h1>
 
 <h2 align="center">
 
-[🖱️Live Website](https://rps-game-v3-codepapa360.vercel.app)
+[🖱️Live Website](https://rps-game-v2-codepapa360.vercel.app)
 
 </h2>
 
@@ -19,11 +19,11 @@
 
 <!-- Brief -->
 <p align="center">
-Initially built with vanilla TypeScript, the Rock, Paper, Scissors game is now upgraded to React with TypeScript and Framer motion. This project showcases my focus on learning and practicing TypeScript fundamentals, both in a vanilla JavaScript environment and now through React with Framer motion.
+Initially built with vanilla TypeScript, the Rock, Paper, Scissors game is now upgraded to React with TypeScript. This project showcases my focus on learning and practicing TypeScript fundamentals, both in a vanilla JavaScript environment and now through React.
 </p>
 
 <!-- Screenshot -->
-<a align="center" href="https://rps-game-v3-codepapa360.vercel.app">
+<a align="center" href="https://rps-game-v2-codepapa360.vercel.app">
 
 ![Screenshot](./public/images/rps-game-thumbnail.webp)
 
@@ -42,7 +42,7 @@ Initially built with vanilla TypeScript, the Rock, Paper, Scissors game is now u
 
 ### Links
 
-- Live Site URL: [Click here](https://rps-game-v3-codepapa360.vercel.app)
+- Live Site URL: [Click here](https://rps-game-v2-codepapa360.vercel.app)
 - Solution URL: [Click here](https://www.frontendmentor.io/solutions/rock-paper-scissors-game-with-typescript-fe6IN10Ent)
 
 ### The challenge
@@ -57,7 +57,6 @@ Users should be able to:
 
 - React
 - TypeScript
-- Framer motion
 - Tailwind CSS
 - HTML5
 - Mobile-first workflow
@@ -65,7 +64,11 @@ Users should be able to:
 
 ## What I Learned
 
-Through this project, I strengthened my understanding of TypeScript in both a vanilla JavaScript environment, from v2 in React with TypeScript and now with Framer motion in v3. It allowed me to explore static typing, improve code clarity, and enforce safer coding practices along with some nice animation with Framer motion.
+Through this project, I strengthened my understanding of TypeScript in both a vanilla JavaScript environment and from v2 in React with TypeScript. It allowed me to explore static typing, improve code clarity, and enforce safer coding practices.
+
+## Future Upgrades
+
+I plan to continue enhancing this project by incorporating **Framer Motion**. This will allow me to practice and learn animation techniques for smoother, more interactive user experiences, further improving the UI and making the game more engaging.
 
 ## Installation
 
