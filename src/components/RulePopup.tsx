@@ -1,6 +1,28 @@
+import { motion } from "framer-motion";
+
 function RulePopup({ closeRule }: { closeRule: (state: boolean) => void }) {
   return (
-    <aside
+    <motion.aside
+      initial={{
+        opacity: 0,
+        scale: 0.9,
+        y: "-20%",
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        y: 0,
+      }}
+      transition={{
+        // duration: 1,
+        ease: "backInOut",
+      }}
+      exit={{
+        rotate: "0deg",
+        opacity: 0,
+        scale: 0.9,
+        y: "-20%",
+      }}
       className="fixed inset-0 justify-center items-center z-50 p-4 flex"
       id="rule-modal"
     >
@@ -28,7 +50,7 @@ function RulePopup({ closeRule }: { closeRule: (state: boolean) => void }) {
           alt="Rules"
         />
       </div>
-    </aside>
+    </motion.aside>
   );
 }
 
