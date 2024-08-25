@@ -61,14 +61,15 @@ function ChoiseButton({
         }
         ${!disabled ? "hover:scale-105" : ""}
         `}
+        type="button"
       >
-        <div className="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden size-3/4 flex justify-center items-center">
+        <span className="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden size-3/4 flex justify-center items-center">
           <img
             src={buttons[name].img}
             className="w-2/5 select-none pointer-events-none"
             alt={name}
           />
-        </div>
+        </span>
       </button>
     </div>
   );
