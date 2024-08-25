@@ -4,7 +4,7 @@ export type choiceButtonPropType = {
   name: choiceButtonType;
   absulutePosition?: boolean;
   onClickAction?: (choice: choiceButtonType) => void;
-  disabled?: boolean;
+  disabled: boolean;
   size: "normal" | "large";
   isWinner?: boolean;
 };

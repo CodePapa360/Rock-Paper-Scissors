@@ -9,10 +9,8 @@ function ChoiseButton({
   isWinner,
 }: choiceButtonPropType) {
   const sizeClass = {
-    normal:
-      "size-24 sm:size-40 md:size-48 active:size-20 sm:active:size-36 md:active:size-44",
-    large:
-      "size-24 sm:size-40 md:size-60 active:size-20 sm:active:size-36 md:active:size-56",
+    normal: "md:size-48",
+    large: "md:size-60",
   };
 
   const buttons = {
@@ -40,38 +38,31 @@ function ChoiseButton({
   }
 
   return (
-    <div
-      className={`${
-        absulutePosition ? buttons[name].position : "relative"
-      } z-10`}
+    <button
+      type="button"
+      disabled={disabled}
+      onClick={handleClick}
+      className={`
+        ${sizeClass[size]} 
+        ${absulutePosition ? buttons[name].position : "relative"} 
+        ${buttons[name].color} 
+        ${disabled ? "pointer-events-none" : "hover:scale-105"} 
+        size-24 sm:size-40 active:scale-95 transition-all rounded-full flex justify-center items-center cursor-pointer z-20`}
     >
       <span
-        className={`duration-1000 absolute inset-0 opacity-10 -z-10 rounded-full bg-white before:absolute before:w-full before:h-full before:rounded-full before:bg-white before:opacity-30 before:z-[-1] after:absolute after:w-full after:h-full after:rounded-full after:bg-white after:opacity-20 before:scale-[1.2] after:scale-[1.4] ${
-          isWinner ? "scale-[1.2]" : "scale-0"
-        }`}
+        className={`
+          ${isWinner ? "scale-[1.2]" : "scale-0"}
+          duration-1000 absolute inset-0 opacity-10 -z-10 rounded-full bg-white before:absolute before:w-full before:h-full before:rounded-full before:bg-white before:opacity-30 before:z-[-1] after:absolute after:w-full after:h-full after:rounded-full after:bg-white after:opacity-20 before:scale-[1.2] after:scale-[1.4] flex justify-center items-center`}
       />
-      <button
-        onClick={handleClick}
-        className={`${
-          sizeClass[size]
-        } transition-all rounded-full flex justify-center items-center cursor-pointer z-20 ${
-          buttons[name].color
-        } ${disabled ? "pointer-events-none" : ""} ${
-          absulutePosition ? buttons[name].position : ""
-        }
-        ${!disabled ? "hover:scale-105" : ""}
-        `}
-        type="button"
-      >
-        <span className="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden size-3/4 flex justify-center items-center">
-          <img
-            src={buttons[name].img}
-            className="w-2/5 select-none pointer-events-none"
-            alt={name}
-          />
-        </span>
-      </button>
-    </div>
+
+      <span className="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden size-3/4 flex justify-center items-center">
+        <img
+          src={buttons[name].img}
+          className="w-2/5 select-none pointer-events-none"
+          alt={name}
+        />
+      </span>
+    </button>
   );
 }
 

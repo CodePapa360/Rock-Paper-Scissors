@@ -25,6 +25,7 @@ function BeginningStep() {
           absulutePosition={true}
           onClickAction={handleClickAction}
           size="normal"
+          disabled={false}
         />
       ))}
     </div>
