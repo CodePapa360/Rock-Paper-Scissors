@@ -2,7 +2,7 @@
 
 <h2 align="center">
 
-[🖱️Live Website](https://rps-game-codepapa360.vercel.app)
+[🖱️Live Website](https://rps-game-v2-codepapa360.vercel.app)
 
 </h2>
 
@@ -23,7 +23,7 @@ This project is a solution to the Rock-Paper-Scissors challenge from Frontend Me
 </p>
 
 <!-- Screenshot -->
-<a align="center" href="https://rps-game-codepapa360.vercel.app">
+<a align="center" href="https://rps-game-v2-codepapa360.vercel.app">
 
 ![Screenshot](./public/images/rps-game-thumbnail.webp)
 
@@ -41,7 +41,7 @@ This project is a solution to the Rock-Paper-Scissors challenge from Frontend Me
 
 ### Links
 
-- Live Site URL: [Click here](https://rps-game-codepapa360.vercel.app)
+- Live Site URL: [Click here](https://rps-game-v2-codepapa360.vercel.app)
 - Solution URL: [Click here](https://www.frontendmentor.io/solutions/rock-paper-scissors-game-with-typescript-fe6IN10Ent)
 
 ### The challenge
