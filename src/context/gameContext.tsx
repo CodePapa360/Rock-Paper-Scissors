@@ -17,7 +17,7 @@ import {
 
 const initialState: GameStateType = {
   score: 0,
-  step: 1,
+  isResultStep: false,
   userChoice: null,
   houseChoice: null,
   winner: null,
@@ -28,7 +28,7 @@ const initialState: GameStateType = {
 interface IGameContext extends GameStateType {
   dispatch: Dispatch<ActionType>;
   updateScore: (score?: number) => void;
-  updateStep: (step: number) => void;
+  updateIsResultStep: (isResultStep: boolean) => void;
   updateChoice: (choice: choiceButtonType) => void;
   replay: () => void;
   reset: () => void;
@@ -40,8 +40,8 @@ function reducer(state: GameStateType, action: ActionType) {
   switch (action.type) {
     case "UPDATE_SCORE":
       return { ...state, score: action.payload };
-    case "UPDATE_STEP":
-      return { ...state, step: action.payload };
+    case "UPDATE_IS_RESULT_STEP":
+      return { ...state, isResultStep: action.payload };
     case "SET_USER_CHOICE":
       return { ...state, userChoice: action.payload };
     case "SET_HOUSE_CHOICE":
@@ -63,8 +63,10 @@ function reducer(state: GameStateType, action: ActionType) {
 }
 
 function GameProvider({ children }: { children: ReactNode }) {
-  const [{ score, step, userChoice, houseChoice, winner, choices }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { score, isResultStep, userChoice, houseChoice, winner, choices },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   function updateScore(storageScore?: number) {
     if (storageScore) {
@@ -75,8 +77,8 @@ function GameProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  function updateStep(step: number) {
-    dispatch({ type: "UPDATE_STEP", payload: step });
+  function updateIsResultStep(isResultStep: boolean) {
+    dispatch({ type: "UPDATE_IS_RESULT_STEP", payload: isResultStep });
   }
 
   function updateChoice(choice: choiceButtonType) {
@@ -90,11 +92,6 @@ function GameProvider({ children }: { children: ReactNode }) {
     // Update winner
     const winner = determineWinner(choice, houseChoice);
     setWinner(winner);
-
-    // Update score
-    // if (winner === "player") {
-    //   updateScore();
-    // }
   }
 
   function setWinner(winner: WinnerType) {
@@ -122,7 +119,7 @@ function GameProvider({ children }: { children: ReactNode }) {
 
   const value: IGameContext = {
     score,
-    step,
+    isResultStep,
     userChoice,
     houseChoice,
     winner,
@@ -130,7 +127,7 @@ function GameProvider({ children }: { children: ReactNode }) {
 
     dispatch,
     updateScore,
-    updateStep,
+    updateIsResultStep,
     updateChoice,
     replay,
     reset,

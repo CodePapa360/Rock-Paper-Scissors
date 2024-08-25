@@ -11,7 +11,7 @@ export type choiceButtonPropType = {
 
 export type GameStateType = {
   score: number;
-  step: number;
+  isResultStep: boolean;
   userChoice: choiceButtonType | null;
   houseChoice: choiceButtonType | null;
   winner: string | null;
@@ -20,7 +20,7 @@ export type GameStateType = {
 
 export type ActionType =
   | { type: "UPDATE_SCORE"; payload: number }
-  | { type: "UPDATE_STEP"; payload: number }
+  | { type: "UPDATE_IS_RESULT_STEP"; payload: boolean }
   | { type: "SET_USER_CHOICE"; payload: choiceButtonType }
   | { type: "SET_HOUSE_CHOICE"; payload: choiceButtonType }
   | { type: "SET_WINNER"; payload: string }

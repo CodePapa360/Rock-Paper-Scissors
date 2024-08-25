@@ -3,11 +3,11 @@ import { choiceButtonType } from "../types";
 import ChoiseButton from "./ChoiseButton";
 
 function BeginningStep() {
-  const { choices, updateChoice, updateStep } = useGame();
+  const { choices, updateChoice, updateIsResultStep } = useGame();
 
   function handleClickAction(choice: choiceButtonType) {
     updateChoice(choice);
-    updateStep(2);
+    updateIsResultStep(true);
   }
 
   return (
