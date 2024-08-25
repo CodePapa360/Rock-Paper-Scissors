@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import { useGame } from "../context/gameContext";
 import ChoiseButton from "./ChoiseButton";
 
-function SecondStep() {
+function ResultStep() {
   const { userChoice, houseChoice, updateScore, replay, winner } = useGame();
   const [thinking, setThinking] = useState(true);
   const [showResult, setShowResult] = useState(false);
-
-  console.log("winner", winner);
 
   const delay = 1200;
 
@@ -89,4 +87,4 @@ function SecondStep() {
   );
 }
 
-export default SecondStep;
+export default ResultStep;

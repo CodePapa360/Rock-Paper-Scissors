@@ -2,7 +2,7 @@ import { useGame } from "../context/gameContext";
 import { choiceButtonType } from "../types";
 import ChoiseButton from "./ChoiseButton";
 
-function FirstStep() {
+function BeginningStep() {
   const { choices, updateChoice, updateStep } = useGame();
 
   function handleClickAction(choice: choiceButtonType) {
@@ -31,4 +31,4 @@ function FirstStep() {
   );
 }
 
-export default FirstStep;
+export default BeginningStep;

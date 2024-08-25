@@ -1,14 +1,14 @@
-import FirstStep from "./FirstStep";
+import BeginningStep from "./BeginningStep";
 import { useGame } from "../context/gameContext";
-import SecondStep from "./SecondStep";
+import ResultStep from "./ResultStep";
 
 function GameBoard() {
   const { step } = useGame();
 
   return (
     <div className="flex justify-center items-center flex-col">
-      {step === 1 && <FirstStep />}
-      {step === 2 && <SecondStep />}
+      {step === 1 && <BeginningStep />}
+      {step === 2 && <ResultStep />}
     </div>
   );
 }
