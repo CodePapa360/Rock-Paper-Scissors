@@ -2,7 +2,7 @@ export type choiceButtonType = "rock" | "paper" | "scissors";
 
 export type choiceButtonPropType = {
   name: choiceButtonType;
-  absulutePosition?: boolean;
+  absulutePosition: boolean;
   onClickAction?: (choice: choiceButtonType) => void;
   disabled: boolean;
   size: "normal" | "large";
