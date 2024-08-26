@@ -1,10 +1,22 @@
 import { GrPowerReset } from "react-icons/gr";
-
 import { useGame } from "../context/gameContext";
-import { motion } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
+import { useEffect } from "react";
 
 function Header() {
   const { score, reset } = useGame();
+  const scaling = useAnimationControls();
+
+  useEffect(() => {
+    scaling.start({
+      backgroundColor: ["#fff", "#00c3ff", "#fff"],
+      rotate: [0, 10, -10, 0],
+      scale: [1, 1.2, 1.2, 1],
+      transition: {
+        duration: 0.5,
+      },
+    });
+  }, [score, scaling]);
 
   return (
     <header>
@@ -20,7 +32,10 @@ function Header() {
           />
         </div>
 
-        <div className="relative bg-white rounded-md p-2 h-full w-24 sm:w-36 flex justify-center items-center flex-col overflow-hidden">
+        <motion.div
+          animate={scaling}
+          className="relative bg-white rounded-md p-2 h-full w-24 sm:w-36 flex justify-center items-center flex-col overflow-hidden"
+        >
           <span className="text-blue-700 uppercase tracking-wider text-xs sm:text-base">
             Score
           </span>
@@ -38,12 +53,12 @@ function Header() {
               transition={{ spring: false }}
               title="Reset Score"
               onClick={() => reset()}
-              className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-200 text-slate-600 hover:bg-slate-300 rounded-full cursor-pointer"
+              className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-900/10 text-slate-600 hover:bg-slate-300 rounded-full cursor-pointer"
             >
               <GrPowerReset size={20} />
             </motion.button>
           )}
-        </div>
+        </motion.div>
       </div>
     </header>
   );
