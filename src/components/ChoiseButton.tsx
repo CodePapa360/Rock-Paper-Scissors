@@ -59,7 +59,7 @@ function ChoiseButton({
         
         ${buttons[name].color} 
         ${disabled ? "pointer-events-none" : "hover:scale-105"} 
-        size-24 sm:size-40 active:scale-95 rounded-full flex justify-center items-center cursor-pointer z-20`}
+        size-28 sm:size-40 active:scale-95 rounded-full flex justify-center items-center cursor-pointer z-20`}
       >
         <span
           className={`

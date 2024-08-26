@@ -24,51 +24,47 @@ function GameBoard() {
   const choicesToRender = userChoice ? [userChoice] : choices;
 
   return (
-    <div className="flex justify-center items-center flex-col">
-      <div
-        className={`flex flex-col gap-4 sm:gap-20 items-center justify-center relative`}
-      >
-        <AnimatePresence>
-          <div className="flex gap-4 sm:gap-20 items-center justify-center relative">
-            {!isResultStep && (
-              <img
-                key="triangle-bg"
-                src="images/bg-triangle.svg"
-                alt="triangle"
-                className="pointer-events-none select-none h-full w-full p-10 sm:p-24"
-              />
-            )}
+    <div className="flex flex-col gap-4 sm:gap-20 items-center justify-center relative">
+      <AnimatePresence>
+        <div className="flex gap-4 sm:gap-20 items-center justify-center relative">
+          {!isResultStep && (
+            <img
+              key="triangle-bg"
+              src="images/bg-triangle.svg"
+              alt="triangle"
+              className="pointer-events-none select-none h-full w-full p-10 sm:p-24"
+            />
+          )}
 
-            {choicesToRender.map((choice) => (
+          {choicesToRender.map((choice) => (
+            <ChoiseButton
+              key={choice}
+              name={choice}
+              isWinner={winner === "player"}
+              absulutePosition={!isResultStep}
+              onClickAction={handleClickAction}
+              size={isResultStep ? "large" : "normal"}
+              disabled={isResultStep}
+            />
+          ))}
+
+          {isThinking ? (
+            <ThinkingAnim key="thinking-anim" />
+          ) : (
+            houseChoice && (
               <ChoiseButton
-                key={choice}
-                name={choice}
-                isWinner={winner === "player"}
-                absulutePosition={!isResultStep}
-                onClickAction={handleClickAction}
-                size="normal"
-                disabled={isResultStep}
+                name={houseChoice}
+                isWinner={winner === "house"}
+                disabled={true}
+                size={isResultStep ? "large" : "normal"}
+                absulutePosition={false}
               />
-            ))}
+            )
+          )}
+        </div>
 
-            {isThinking ? (
-              <ThinkingAnim key="thinking-anim" />
-            ) : (
-              houseChoice && (
-                <ChoiseButton
-                  name={houseChoice}
-                  isWinner={winner === "house"}
-                  disabled={true}
-                  size="normal"
-                  absulutePosition={false}
-                />
-              )
-            )}
-          </div>
-
-          {isVisibleResult && <Result key="result-section" />}
-        </AnimatePresence>
-      </div>
+        {isVisibleResult && <Result key="result-section" />}
+      </AnimatePresence>
     </div>
   );
 }
