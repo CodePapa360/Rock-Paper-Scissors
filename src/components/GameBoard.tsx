@@ -4,6 +4,7 @@ import { choiceButtonType } from "../types";
 import ChoiseButton from "./ChoiseButton";
 import ThinkingAnim from "./ThinkingAnim";
 import Result from "./Result";
+import { motion } from "framer-motion";
 
 function GameBoard() {
   const {
@@ -24,47 +25,48 @@ function GameBoard() {
   const choicesToRender = userChoice ? [userChoice] : choices;
 
   return (
-    <div className="flex flex-col gap-4 sm:gap-20 items-center justify-center relative">
-      <AnimatePresence>
-        <div className="flex gap-4 sm:gap-20 items-center justify-center relative">
+    <div className="flex flex-col gap-10 sm:gap-20 items-center justify-center relative">
+      <div className="flex gap-8 sm:gap-20 items-center justify-center relative">
+        <AnimatePresence mode="popLayout">
           {!isResultStep && (
-            <img
-              key="triangle-bg"
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               src="images/bg-triangle.svg"
               alt="triangle"
               className="pointer-events-none select-none h-full w-full p-10 sm:p-24"
             />
           )}
+        </AnimatePresence>
 
-          {choicesToRender.map((choice) => (
+        {choicesToRender.map((choice) => (
+          <ChoiseButton
+            key={choice}
+            name={choice}
+            isWinner={winner === "player"}
+            absulutePosition={!isResultStep}
+            onClickAction={handleClickAction}
+            size={isResultStep ? "large" : "normal"}
+            disabled={isResultStep}
+          />
+        ))}
+
+        {isThinking ? (
+          <ThinkingAnim />
+        ) : (
+          houseChoice && (
             <ChoiseButton
-              key={choice}
-              name={choice}
-              isWinner={winner === "player"}
-              absulutePosition={!isResultStep}
-              onClickAction={handleClickAction}
+              name={houseChoice}
+              isWinner={winner === "house"}
+              disabled={true}
               size={isResultStep ? "large" : "normal"}
-              disabled={isResultStep}
+              absulutePosition={false}
             />
-          ))}
+          )
+        )}
+      </div>
 
-          {isThinking ? (
-            <ThinkingAnim key="thinking-anim" />
-          ) : (
-            houseChoice && (
-              <ChoiseButton
-                name={houseChoice}
-                isWinner={winner === "house"}
-                disabled={true}
-                size={isResultStep ? "large" : "normal"}
-                absulutePosition={false}
-              />
-            )
-          )}
-        </div>
-
-        {isVisibleResult && <Result key="result-section" />}
-      </AnimatePresence>
+      <AnimatePresence>{isVisibleResult && <Result />}</AnimatePresence>
     </div>
   );
 }

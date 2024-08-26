@@ -5,8 +5,12 @@ function Result() {
   const { winner, replay } = useGame();
 
   return (
-    <div className="flex flex-col items-center">
-      <p className="uppercase text-5xl sm:text-5xl mb-4 text-center font-bold">
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="flex flex-col items-center gap-5"
+    >
+      <p className="uppercase text-5xl sm:text-5xl text-center font-bold">
         {winner === "player"
           ? "You win"
           : winner === "house"
@@ -21,7 +25,7 @@ function Result() {
       >
         Play again
       </motion.button>
-    </div>
+    </motion.div>
   );
 }
 

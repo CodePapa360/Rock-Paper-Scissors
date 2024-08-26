@@ -51,6 +51,9 @@ function ChoiseButton({
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0 }}
+        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.1 }}
+        whileFocus={{ scale: 1.1 }}
         type="button"
         disabled={disabled}
         onClick={handleClick}
@@ -58,7 +61,7 @@ function ChoiseButton({
         ${sizeClass[size]} 
         
         ${buttons[name].color} 
-        ${disabled ? "pointer-events-none" : "hover:scale-105"} 
+        ${disabled ? "pointer-events-none" : ""} 
         size-28 sm:size-40 active:scale-95 rounded-full flex justify-center items-center cursor-pointer z-20`}
       >
         <span
