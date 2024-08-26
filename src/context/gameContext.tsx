@@ -23,7 +23,7 @@ const initialState: GameStateType = {
   userChoice: null,
   houseChoice: null,
   winner: null,
-  choices: ["rock", "paper", "scissors"],
+  choices: ["paper", "scissors", "rock"],
 };
 
 // Define the context type

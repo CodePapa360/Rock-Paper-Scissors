@@ -24,9 +24,26 @@ function GameBoard() {
 
   const choicesToRender = userChoice ? [userChoice] : choices;
 
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
     <div className="flex flex-col gap-10 sm:gap-20 items-center justify-center relative">
-      <div className="flex gap-8 sm:gap-20 items-center justify-center relative">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="flex gap-8 sm:gap-20 items-center justify-center relative"
+      >
         <AnimatePresence mode="popLayout">
           {!isResultStep && (
             <motion.img
@@ -64,7 +81,7 @@ function GameBoard() {
             />
           )
         )}
-      </div>
+      </motion.div>
 
       <AnimatePresence>{isVisibleResult && <Result />}</AnimatePresence>
     </div>

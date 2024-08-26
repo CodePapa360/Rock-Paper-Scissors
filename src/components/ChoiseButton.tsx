@@ -11,7 +11,7 @@ function ChoiseButton({
 }: choiceButtonPropType) {
   const sizeClass = {
     normal: "md:size-48",
-    large: "md:size-60",
+    large: "size-32 md:size-60",
   };
 
   const positions = {
@@ -44,14 +44,20 @@ function ChoiseButton({
     }
   }
 
+  const item = {
+    hidden: { y: 20, opacity: 0, scale: 1.5 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+    },
+
+    exit: { y: 20, opacity: 0, scale: 1.5 },
+  };
+
   return (
     <div className={`${buttons[name].position}`}>
-      <motion.div
-        layout
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0 }}
-      >
+      <motion.div layout variants={item}>
         {isWinner && (
           <motion.span
             initial={{ scale: 0 }}
