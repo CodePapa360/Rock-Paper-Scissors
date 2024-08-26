@@ -22,6 +22,8 @@ function GameBoard() {
     updateChoice(choice);
   }
 
+  console.log("winner from gameboard", winner);
+
   const choicesToRender = userChoice ? [userChoice] : choices;
 
   return (
@@ -43,7 +45,7 @@ function GameBoard() {
           <ChoiseButton
             key={choice}
             name={choice}
-            isWinner={winner === "player"}
+            isWinner={isVisibleResult && winner === "player"}
             absulutePosition={!isResultStep}
             onClickAction={handleClickAction}
             size={isResultStep ? "large" : "normal"}
@@ -57,7 +59,7 @@ function GameBoard() {
           houseChoice && (
             <ChoiseButton
               name={houseChoice}
-              isWinner={winner === "house"}
+              isWinner={isVisibleResult && winner === "house"}
               disabled={true}
               size={isResultStep ? "large" : "normal"}
               absulutePosition={false}

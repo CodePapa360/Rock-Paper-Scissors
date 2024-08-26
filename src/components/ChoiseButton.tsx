@@ -44,40 +44,51 @@ function ChoiseButton({
     }
   }
 
+  console.log(isWinner, name);
+
   return (
-    <div className={`${buttons[name].position} `}>
-      <motion.button
+    <div className={`${buttons[name].position}`}>
+      <motion.div
         layout
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0 }}
-        whileTap={{ scale: 0.9 }}
-        whileHover={{ scale: 1.1 }}
-        whileFocus={{ scale: 1.1 }}
-        type="button"
-        disabled={disabled}
-        onClick={handleClick}
-        className={`
-        ${sizeClass[size]} 
-        
-        ${buttons[name].color} 
-        ${disabled ? "pointer-events-none" : ""} 
-        size-28 sm:size-40 active:scale-95 rounded-full flex justify-center items-center cursor-pointer z-20`}
       >
-        <span
-          className={`
-          ${isWinner ? "scale-[1.2]" : "scale-0"}
-          duration-1000 absolute inset-0 opacity-10 -z-10 rounded-full bg-white before:absolute before:w-full before:h-full before:rounded-full before:bg-white before:opacity-30 before:z-[-1] after:absolute after:w-full after:h-full after:rounded-full after:bg-white after:opacity-20 before:scale-[1.2] after:scale-[1.4] flex justify-center items-center`}
-        />
+        {isWinner && (
+          <motion.span
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            transition={{ delay: 0.2, duration: 1, type: "spring" }}
+            className="absolute inset-0 z-10 opacity-20 rounded-full bg-white flex justify-center items-center"
+          >
+            <span className="absolute w-full h-full rounded-full bg-white opacity-30 scale-[1.2]" />
+            <span className="absolute w-full h-full rounded-full bg-white opacity-20 scale-[1.4]" />
+          </motion.span>
+        )}
 
-        <span className="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden size-3/4 flex justify-center items-center">
-          <img
-            src={buttons[name].img}
-            className="w-2/5 select-none pointer-events-none"
-            alt={name}
-          />
-        </span>
-      </motion.button>
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
+          whileFocus={{ scale: 1.1 }}
+          type="button"
+          disabled={disabled}
+          onClick={handleClick}
+          className={`
+          ${sizeClass[size]} 
+          ${buttons[name].color} 
+          ${disabled ? "pointer-events-none" : ""} 
+          size-28 sm:size-40 active:scale-95 rounded-full flex justify-center items-center cursor-pointer z-20 relative`}
+        >
+          <span className="bg-white rounded-full shadow-inner shadow-slate-400 overflow-hidden size-3/4 flex justify-center items-center">
+            <img
+              src={buttons[name].img}
+              className="w-2/5 select-none pointer-events-none"
+              alt={name}
+            />
+          </span>
+        </motion.button>
+      </motion.div>
     </div>
   );
 }
