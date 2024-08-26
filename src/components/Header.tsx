@@ -24,12 +24,12 @@ function Header() {
           <span className="text-blue-700 uppercase tracking-wider text-xs sm:text-base">
             Score
           </span>
-          <span
+          <data
             className="text-slate-600 text-4xl sm:text-6xl font-bold"
             id="player-score"
           >
             {score}
-          </span>
+          </data>
 
           {score > 0 && (
             <motion.button

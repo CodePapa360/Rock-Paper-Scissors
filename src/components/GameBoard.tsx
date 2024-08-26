@@ -22,8 +22,6 @@ function GameBoard() {
     updateChoice(choice);
   }
 
-  console.log("winner from gameboard", winner);
-
   const choicesToRender = userChoice ? [userChoice] : choices;
 
   return (

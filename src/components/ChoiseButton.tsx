@@ -44,8 +44,6 @@ function ChoiseButton({
     }
   }
 
-  console.log(isWinner, name);
-
   return (
     <div className={`${buttons[name].position}`}>
       <motion.div
