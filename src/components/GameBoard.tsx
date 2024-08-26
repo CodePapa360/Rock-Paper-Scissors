@@ -13,7 +13,7 @@ function GameBoard() {
   const [isThinking, setIsThinking] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
-  const delay = 1200;
+  const delay = 1000;
 
   useEffect(() => {
     if (!isResultStep) return;
@@ -32,7 +32,7 @@ function GameBoard() {
       clearTimeout(thinkingTimeout);
       clearTimeout(resultTimeout);
     };
-  }, [winner, isResultStep, updateScore]);
+  }, [winner, isResultStep]);
 
   function handleClickAction(choice: choiceButtonType) {
     updateChoice(choice);
