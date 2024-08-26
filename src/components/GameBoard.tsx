@@ -16,6 +16,8 @@ function GameBoard() {
   const delay = 1200;
 
   useEffect(() => {
+    if (!isResultStep) return;
+
     const thinkingTimeout = setTimeout(() => {
       setIsThinking(false);
 
@@ -30,7 +32,7 @@ function GameBoard() {
       clearTimeout(thinkingTimeout);
       clearTimeout(resultTimeout);
     };
-  }, [isResultStep]);
+  }, [winner, isResultStep, updateScore]);
 
   function handleClickAction(choice: choiceButtonType) {
     updateChoice(choice);
@@ -49,29 +51,27 @@ function GameBoard() {
           <div className="flex gap-4 sm:gap-20 items-center justify-center relative">
             {!isResultStep && (
               <img
+                key="triangle-bg"
                 src="images/bg-triangle.svg"
                 alt="triangle"
                 className="pointer-events-none select-none h-full w-full p-10 sm:p-24"
               />
             )}
 
-            {choicesToRender.map(
-              (choice) =>
-                choice && (
-                  <ChoiseButton
-                    key={choice}
-                    name={choice}
-                    isWinner={winner === "player"}
-                    absulutePosition={!isResultStep}
-                    onClickAction={handleClickAction}
-                    size="normal"
-                    disabled={isResultStep}
-                  />
-                )
-            )}
+            {choicesToRender.map((choice) => (
+              <ChoiseButton
+                key={choice}
+                name={choice}
+                isWinner={winner === "player"}
+                absulutePosition={!isResultStep}
+                onClickAction={handleClickAction}
+                size="normal"
+                disabled={isResultStep}
+              />
+            ))}
 
             {isThinking ? (
-              <ThinkingAnim />
+              <ThinkingAnim key="thinking-anim" />
             ) : (
               houseChoice && (
                 <ChoiseButton
@@ -85,7 +85,9 @@ function GameBoard() {
             )}
           </div>
 
-          {showResult && <Result setShowResult={setShowResult} />}
+          {showResult && (
+            <Result setShowResult={setShowResult} key="result-section" />
+          )}
         </AnimatePresence>
       </div>
     </div>

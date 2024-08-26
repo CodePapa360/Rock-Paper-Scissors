@@ -1,5 +1,7 @@
-import { BiReset } from "react-icons/bi";
+import { GrPowerReset } from "react-icons/gr";
+
 import { useGame } from "../context/gameContext";
+import { motion } from "framer-motion";
 
 function Header() {
   const { score, reset } = useGame();
@@ -30,13 +32,15 @@ function Header() {
           </span>
 
           {score > 0 && (
-            <button
+            <motion.button
+              whileHover={{ rotate: 360 }}
+              transition={{ spring: false }}
               title="Reset Score"
               onClick={() => reset()}
-              className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-200 text-slate-600 hover:bg-slate-300 transition-all rounded-md cursor-pointer"
+              className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-200 text-slate-600 hover:bg-slate-300 rounded-full cursor-pointer"
             >
-              <BiReset size={22} />
-            </button>
+              <GrPowerReset size={20} />
+            </motion.button>
           )}
         </div>
       </div>
