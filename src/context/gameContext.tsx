@@ -18,6 +18,8 @@ import {
 const initialState: GameStateType = {
   score: 0,
   isResultStep: false,
+  isVisibleResult: false,
+  isThinking: false,
   userChoice: null,
   houseChoice: null,
   winner: null,
@@ -29,6 +31,8 @@ interface IGameContext extends GameStateType {
   dispatch: Dispatch<ActionType>;
   updateScore: (score?: number) => void;
   updateIsResultStep: (isResultStep: boolean) => void;
+  updateIsVisibleResult: (isVisibleResult: boolean) => void;
+  updateIsThinking: (isThinking: boolean) => void;
   updateChoice: (choice: choiceButtonType) => void;
   replay: () => void;
   reset: () => void;
@@ -42,6 +46,10 @@ function reducer(state: GameStateType, action: ActionType) {
       return { ...state, score: action.payload };
     case "UPDATE_IS_RESULT_STEP":
       return { ...state, isResultStep: action.payload };
+    case "IS_VISIBLE_RESULT":
+      return { ...state, isVisibleResult: action.payload };
+    case "IS_THINKING":
+      return { ...state, isThinking: action.payload };
     case "SET_USER_CHOICE":
       return { ...state, userChoice: action.payload };
     case "SET_HOUSE_CHOICE":
@@ -64,7 +72,16 @@ function reducer(state: GameStateType, action: ActionType) {
 
 function GameProvider({ children }: { children: ReactNode }) {
   const [
-    { score, isResultStep, userChoice, houseChoice, winner, choices },
+    {
+      score,
+      isResultStep,
+      userChoice,
+      houseChoice,
+      winner,
+      choices,
+      isThinking,
+      isVisibleResult,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -79,6 +96,14 @@ function GameProvider({ children }: { children: ReactNode }) {
 
   function updateIsResultStep(isResultStep: boolean) {
     dispatch({ type: "UPDATE_IS_RESULT_STEP", payload: isResultStep });
+  }
+
+  function updateIsVisibleResult(isVisibleResult: boolean) {
+    dispatch({ type: "IS_VISIBLE_RESULT", payload: isVisibleResult });
+  }
+
+  function updateIsThinking(isThinking: boolean) {
+    dispatch({ type: "IS_THINKING", payload: isThinking });
   }
 
   function updateChoice(choice: choiceButtonType) {
@@ -124,10 +149,14 @@ function GameProvider({ children }: { children: ReactNode }) {
     houseChoice,
     winner,
     choices,
+    isVisibleResult,
+    isThinking,
 
     dispatch,
     updateScore,
     updateIsResultStep,
+    updateIsVisibleResult,
+    updateIsThinking,
     updateChoice,
     replay,
     reset,

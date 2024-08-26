@@ -16,11 +16,15 @@ export type GameStateType = {
   houseChoice: choiceButtonType | null;
   winner: string | null;
   choices: choiceButtonType[];
+  isVisibleResult: boolean;
+  isThinking: boolean;
 };
 
 export type ActionType =
   | { type: "UPDATE_SCORE"; payload: number }
   | { type: "UPDATE_IS_RESULT_STEP"; payload: boolean }
+  | { type: "IS_VISIBLE_RESULT"; payload: boolean }
+  | { type: "IS_THINKING"; payload: boolean }
   | { type: "SET_USER_CHOICE"; payload: choiceButtonType }
   | { type: "SET_HOUSE_CHOICE"; payload: choiceButtonType }
   | { type: "SET_WINNER"; payload: string }

@@ -2,16 +2,25 @@ import { AnimatePresence } from "framer-motion";
 import { useGame } from "../context/gameContext";
 import { choiceButtonType } from "../types";
 import ChoiseButton from "./ChoiseButton";
-import { useEffect, useState } from "react";
 import ThinkingAnim from "./ThinkingAnim";
 import Result from "./Result";
+import { useEffect } from "react";
 
 function GameBoard() {
-  const { isResultStep, updateIsResultStep, winner } = useGame();
-  const { choices, houseChoice, userChoice, updateChoice, updateScore } =
-    useGame();
-  const [isThinking, setIsThinking] = useState(false);
-  const [showResult, setShowResult] = useState(false);
+  const {
+    isResultStep,
+    winner,
+    choices,
+    houseChoice,
+    userChoice,
+    isThinking,
+    isVisibleResult,
+    updateIsResultStep,
+    updateIsThinking,
+    updateIsVisibleResult,
+    updateChoice,
+    updateScore,
+  } = useGame();
 
   const delay = 1000;
 
@@ -19,13 +28,13 @@ function GameBoard() {
     if (!isResultStep) return;
 
     const thinkingTimeout = setTimeout(() => {
-      setIsThinking(false);
+      updateIsThinking(false);
 
       if (winner === "player") updateScore();
     }, delay);
 
     const resultTimeout = setTimeout(() => {
-      setShowResult(true);
+      updateIsVisibleResult(true);
     }, delay + delay / 3);
 
     return () => {
@@ -37,7 +46,7 @@ function GameBoard() {
   function handleClickAction(choice: choiceButtonType) {
     updateChoice(choice);
     updateIsResultStep(true);
-    setIsThinking(true);
+    updateIsThinking(true);
   }
 
   const choicesToRender = userChoice ? [userChoice] : choices;
@@ -85,9 +94,7 @@ function GameBoard() {
             )}
           </div>
 
-          {showResult && (
-            <Result setShowResult={setShowResult} key="result-section" />
-          )}
+          {isVisibleResult && <Result key="result-section" />}
         </AnimatePresence>
       </div>
     </div>

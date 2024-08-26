@@ -4,7 +4,13 @@ import { useGame } from "../context/gameContext";
 import { motion } from "framer-motion";
 
 function Header() {
-  const { score, reset } = useGame();
+  const { score, reset, updateIsThinking, updateIsVisibleResult } = useGame();
+
+  function handleClickAction() {
+    updateIsThinking(false);
+    updateIsVisibleResult(false);
+    reset();
+  }
 
   return (
     <header>
@@ -36,7 +42,7 @@ function Header() {
               whileHover={{ rotate: 360 }}
               transition={{ spring: false }}
               title="Reset Score"
-              onClick={() => reset()}
+              onClick={handleClickAction}
               className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-200 text-slate-600 hover:bg-slate-300 rounded-full cursor-pointer"
             >
               <GrPowerReset size={20} />

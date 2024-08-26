@@ -1,14 +1,10 @@
 import { useGame } from "../context/gameContext";
 
-function Result({
-  setShowResult,
-}: {
-  setShowResult: (value: boolean) => void;
-}) {
-  const { winner, replay } = useGame();
+function Result() {
+  const { winner, replay, updateIsVisibleResult } = useGame();
 
   function handleClick() {
-    setShowResult(false);
+    updateIsVisibleResult(false);
     replay();
   }
 
