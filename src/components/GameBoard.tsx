@@ -4,7 +4,6 @@ import { choiceButtonType } from "../types";
 import ChoiseButton from "./ChoiseButton";
 import ThinkingAnim from "./ThinkingAnim";
 import Result from "./Result";
-import { useEffect } from "react";
 
 function GameBoard() {
   const {
@@ -15,38 +14,11 @@ function GameBoard() {
     userChoice,
     isThinking,
     isVisibleResult,
-    updateIsResultStep,
-    updateIsThinking,
-    updateIsVisibleResult,
     updateChoice,
-    updateScore,
   } = useGame();
-
-  const delay = 1000;
-
-  useEffect(() => {
-    if (!isResultStep) return;
-
-    const thinkingTimeout = setTimeout(() => {
-      updateIsThinking(false);
-
-      if (winner === "player") updateScore();
-    }, delay);
-
-    const resultTimeout = setTimeout(() => {
-      updateIsVisibleResult(true);
-    }, delay + delay / 3);
-
-    return () => {
-      clearTimeout(thinkingTimeout);
-      clearTimeout(resultTimeout);
-    };
-  }, [winner, isResultStep]);
 
   function handleClickAction(choice: choiceButtonType) {
     updateChoice(choice);
-    updateIsResultStep(true);
-    updateIsThinking(true);
   }
 
   const choicesToRender = userChoice ? [userChoice] : choices;

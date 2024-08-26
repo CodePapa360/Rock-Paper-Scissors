@@ -117,6 +117,12 @@ function GameProvider({ children }: { children: ReactNode }) {
     // Update winner
     const winner = determineWinner(choice, houseChoice);
     setWinner(winner);
+
+    // update result step
+    updateIsResultStep(true);
+
+    // update is thinking
+    updateIsThinking(true);
   }
 
   function setWinner(winner: WinnerType) {
@@ -132,6 +138,27 @@ function GameProvider({ children }: { children: ReactNode }) {
 
     localStorage.removeItem("playerScore");
   }
+
+  const delay = 1000;
+
+  useEffect(() => {
+    if (!isResultStep) return;
+
+    const thinkingTimeout = setTimeout(() => {
+      updateIsThinking(false);
+
+      if (winner === "player") updateScore();
+    }, delay);
+
+    const resultTimeout = setTimeout(() => {
+      updateIsVisibleResult(true);
+    }, delay + delay / 3);
+
+    return () => {
+      clearTimeout(thinkingTimeout);
+      clearTimeout(resultTimeout);
+    };
+  }, [winner, isResultStep]);
 
   // utilizing local storage to save the score so when the user refresh the page the score will be saved
   useEffect(() => {
