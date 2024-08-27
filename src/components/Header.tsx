@@ -43,28 +43,25 @@ function Header() {
           />
         </div>
 
-        <motion.div
-          animate={scaling}
-          className="relative bg-white rounded-md p-2 h-full w-24 sm:w-36 flex justify-center items-center flex-col"
-        >
+        <motion.div className="relative bg-white rounded-md p-2 h-full w-24 sm:w-36 flex justify-center items-center flex-col">
           <span className="text-blue-700 uppercase tracking-wider text-xs sm:text-base">
             Score
           </span>
-          <data
-            className="text-slate-600 text-4xl sm:text-6xl font-bold"
+          <div
+            className="relative text-slate-600 text-4xl sm:text-6xl font-bold"
             id="player-score"
           >
             {score > 0 && (
-              <motion.data
+              <motion.span
                 className="absolute top-0 left-0 right-0 flex justify-center items-center bottom-0"
                 animate={fadeScore}
               >
                 +{score}
-              </motion.data>
+              </motion.span>
             )}
 
             {score}
-          </data>
+          </div>
 
           {score > 0 && (
             <motion.button
