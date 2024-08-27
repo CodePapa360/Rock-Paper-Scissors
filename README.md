@@ -2,7 +2,7 @@
 
 <h2 align="center">
 
-[🖱️Live Website](https://rps-game-v3-codepapa360.vercel.app)
+[🖱️Live Website v3](https://rps-game-v3-codepapa360.vercel.app)
 
 </h2>
 
@@ -13,13 +13,13 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/CodePapa360?style=for-the-badge&logo=x)](https://x.com/CodePapa360)
 
 ![version](https://img.shields.io/github/package-json/v/CodePapa360/Rock-Paper-Scissors?color=blue)
-![License](https://img.shields.io/badge/License-Apache%202.0-blue)
+![License](https://img.shields.io/github/license/CodePapa360/Rock-Paper-Scissors?color=blue)
 
 </div>
 
 <!-- Brief -->
 <p align="center">
-Initially built with vanilla TypeScript, the Rock, Paper, Scissors game is now upgraded to React with TypeScript and Framer motion. This project showcases my focus on learning and practicing TypeScript fundamentals, both in a vanilla JavaScript environment and now through React with Framer motion.
+Initially built with vanilla TypeScript, the Rock, Paper, Scissors game has now been upgraded to React with TypeScript and Framer Motion. This project reflects my continued focus on mastering TypeScript, beginning in a vanilla JavaScript environment, then evolving into React, and now adding smooth animations with Framer Motion. It's been a great learning experience, sharpening my skills and improving my code quality.
 </p>
 
 <!-- Screenshot -->
@@ -42,7 +42,9 @@ Initially built with vanilla TypeScript, the Rock, Paper, Scissors game is now u
 
 ### Links
 
-- Live Site URL: [Click here](https://rps-game-v3-codepapa360.vercel.app)
+- v3 Live Site URL (Latest): [Click here](https://rps-game-v3-codepapa360.vercel.app)
+- v2 Live Site URL: [Click here](https://rps-game-v2-codepapa360.vercel.app)
+- v1 Live Site URL: [Click here](https://rps-game-codepapa360.vercel.app)
 - Solution URL: [Click here](https://www.frontendmentor.io/solutions/rock-paper-scissors-game-with-typescript-fe6IN10Ent)
 
 ### The challenge
@@ -57,15 +59,13 @@ Users should be able to:
 
 - React
 - TypeScript
-- Framer motion
+- Framer Motion
 - Tailwind CSS
-- HTML5
-- Mobile-first workflow
 - Vite
 
 ## What I Learned
 
-Through this project, I strengthened my understanding of TypeScript in both a vanilla JavaScript environment, from v2 in React with TypeScript and now with Framer motion in v3. It allowed me to explore static typing, improve code clarity, and enforce safer coding practices along with some nice animation with Framer motion.
+This project strengthened my understanding of TypeScript, beginning in a vanilla JavaScript environment, continuing with React and TypeScript in v2, and now including animations using Framer Motion in v3. It has helped me improve static typing, code clarity, and enforce safer coding practices, while also adding smooth, interactive animations to enhance the user experience.
 
 ## Installation
 
