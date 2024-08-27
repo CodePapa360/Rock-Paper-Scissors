@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 function Header() {
   const { score, reset } = useGame();
-  const scaling = useAnimationControls();
+  const shakeContainer = useAnimationControls();
   const fadeScore = useAnimationControls();
 
   useEffect(() => {
@@ -20,14 +20,14 @@ function Header() {
       },
     });
 
-    scaling.start({
+    shakeContainer.start({
       rotate: [0, 10, -10, 0],
       scale: [1, 1.2, 1.2, 1],
       transition: {
         duration: 0.5,
       },
     });
-  }, [score, scaling, fadeScore]);
+  }, [score, shakeContainer, fadeScore]);
 
   return (
     <header>
@@ -43,11 +43,14 @@ function Header() {
           />
         </div>
 
-        <motion.div className="relative bg-white rounded-md p-2 h-full w-24 sm:w-36 flex justify-center items-center flex-col">
+        <motion.div
+          animate={shakeContainer}
+          className="relative bg-white rounded-md p-2 h-full w-24 sm:w-36 flex justify-center items-center flex-col"
+        >
           <span className="text-blue-700 uppercase tracking-wider text-xs sm:text-base">
             Score
           </span>
-          <div
+          <span
             className="relative text-slate-600 text-4xl sm:text-6xl font-bold"
             id="player-score"
           >
@@ -61,13 +64,12 @@ function Header() {
             )}
 
             {score}
-          </div>
+          </span>
 
           {score > 0 && (
             <motion.button
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ rotate: 360 }}
-              transition={{ spring: false }}
               title="Reset Score"
               onClick={() => reset()}
               className="absolute bottom-0 right-0 p-1 sm:p-2 bg-slate-900/10 text-slate-600 hover:bg-slate-300 rounded-full cursor-pointer"
