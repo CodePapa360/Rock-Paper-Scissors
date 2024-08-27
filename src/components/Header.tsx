@@ -6,17 +6,28 @@ import { useEffect } from "react";
 function Header() {
   const { score, reset } = useGame();
   const scaling = useAnimationControls();
+  const fadeScore = useAnimationControls();
 
   useEffect(() => {
+    if (!score) return;
+
+    fadeScore.start({
+      opacity: [1, 0],
+      y: ["-10%", "-100%"],
+      scale: [1, 0],
+      transition: {
+        duration: 1,
+      },
+    });
+
     scaling.start({
-      backgroundColor: ["#fff", "#00c3ff", "#fff"],
       rotate: [0, 10, -10, 0],
       scale: [1, 1.2, 1.2, 1],
       transition: {
         duration: 0.5,
       },
     });
-  }, [score, scaling]);
+  }, [score, scaling, fadeScore]);
 
   return (
     <header>
@@ -34,7 +45,7 @@ function Header() {
 
         <motion.div
           animate={scaling}
-          className="relative bg-white rounded-md p-2 h-full w-24 sm:w-36 flex justify-center items-center flex-col overflow-hidden"
+          className="relative bg-white rounded-md p-2 h-full w-24 sm:w-36 flex justify-center items-center flex-col"
         >
           <span className="text-blue-700 uppercase tracking-wider text-xs sm:text-base">
             Score
@@ -43,6 +54,15 @@ function Header() {
             className="text-slate-600 text-4xl sm:text-6xl font-bold"
             id="player-score"
           >
+            {score > 0 && (
+              <motion.data
+                className="absolute top-0 left-0 right-0 flex justify-center items-center bottom-0"
+                animate={fadeScore}
+              >
+                +{score}
+              </motion.data>
+            )}
+
             {score}
           </data>
 
