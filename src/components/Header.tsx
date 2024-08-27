@@ -32,7 +32,7 @@ function Header() {
   return (
     <header>
       <h1 className="sr-only">
-        Welcome to the Rock-Paper-Scissors Game v2 by Alamin
+        Welcome to the Rock-Paper-Scissors Game v3 by Alamin
       </h1>
       <div className="flex justify-between items-center border-2 p-2 sm:py-4 sm:px-7 border-slate-400 rounded-md sm:rounded-2xl mb-10 select-none w-full max-w-[44rem] mx-auto sm:mt-4 h-24 sm:h-[9.5rem]">
         <div className="pointer-events-none max-w-28 px-4 sm:max-w-44 sm:px-2">
